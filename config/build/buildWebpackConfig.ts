@@ -1,10 +1,10 @@
-import webpack from "webpack";
-import {BuildOptions} from "./Types/config";
-import {buildPlugins} from "./buildPlugins";
-import {buildLoaders} from "./buildLoaders";
-import {buildResolvers} from "./buildResolvers";
+import { Configuration } from "webpack";
+import { BuildOptions } from "./Types/config";
+import { buildPlugins } from "./buildPlugins";
+import { buildLoaders } from "./buildLoaders";
+import { buildResolvers } from "./buildResolvers";
 
-export function buildWebpackConfig({paths, mode}:BuildOptions):webpack.Configuration {
+export function buildWebpackConfig({paths, mode}:BuildOptions):Configuration {
     return {
         mode: mode,
         entry: paths.entry,

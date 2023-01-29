@@ -1,6 +1,6 @@
-import webpack from 'webpack';
-import {buildWebpackConfig} from "./config/build/buildWebpackConfig";
-import {buildMode, BuildPaths} from "./config/build/Types/config";
+import { Configuration } from 'webpack';
+import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
+import { buildMode, BuildPaths } from "./config/build/Types/config";
 import path from "path";
 
 const mode = buildMode.DEVELOPMENT;
@@ -11,7 +11,7 @@ const buildPaths:BuildPaths = {
     html: path.resolve(__dirname, 'public', 'index.html'),
 }
 
-const config:webpack.Configuration = buildWebpackConfig({
+const config:Configuration = buildWebpackConfig({
     mode: mode,
     paths: buildPaths,
 });

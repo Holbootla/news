@@ -1,8 +1,7 @@
 import { RuleSetRule } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export function buildLoaders(isDev:boolean):RuleSetRule[] {
-    
+export const buildLoaders = (isDev:boolean):RuleSetRule[] => {
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -30,4 +29,4 @@ export function buildLoaders(isDev:boolean):RuleSetRule[] {
         tsLoader,
         cssLoader
     ]
-}
+};

@@ -3,7 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import useTheme from "./theme/useTheme";
 
-export function App() {
+export const App = () => {
     const MainPage = lazy(() => import('./pages/MainPage'));
     const AboutPage = lazy(() => import('./pages/AboutPage'));
     
@@ -22,4 +22,4 @@ export function App() {
             </Suspense>
         </div>
     )
-}
+};

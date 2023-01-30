@@ -5,8 +5,8 @@ import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
 
-export function buildWebpackConfig({mode, port, paths, isDev}:BuildOptions):Configuration {
-    return {
+export const buildWebpackConfig = ({mode, port, paths, isDev}:BuildOptions):Configuration => (
+    {
         mode: mode,
         entry: paths.entry,
         output: {
@@ -23,4 +23,4 @@ export function buildWebpackConfig({mode, port, paths, isDev}:BuildOptions):Conf
         devServer: isDev ? buildDevServer(port) : undefined,
         
     }
-}
+);

@@ -4,6 +4,7 @@ import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
 import { buildDevServer } from "./buildDevServer";
+import path from "path";
 
 export const buildWebpackConfig = ({mode, port, paths, isDev}:BuildOptions):Configuration => (
     {
@@ -18,7 +19,7 @@ export const buildWebpackConfig = ({mode, port, paths, isDev}:BuildOptions):Conf
         module: {
             rules: buildLoaders(isDev),
         },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(paths),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(port) : undefined,
         

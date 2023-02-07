@@ -6,7 +6,7 @@ export const classNames = (mainClass:string, modClasses:ModClasses, addClasses:s
         ...addClasses,
         ...Object.entries(modClasses)
             .filter(([className, enabled]) => enabled)
-            .map((className, enabled) => className)
+            .map(([className, enabled]) => className)
     ]
         .join(' ')
 );

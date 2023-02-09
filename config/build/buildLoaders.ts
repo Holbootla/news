@@ -25,8 +25,27 @@ export const buildLoaders = (isDev:boolean):RuleSetRule[] => {
         exclude: /node_modules/,
     };
     
+    const imgLoader = {
+        test: /\.(png|jpe?g|webp|gif)/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'images/[hash][ext]'
+        }
+    };
+    
+    const svgLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+        generator: {
+            filename: 'icons/[hash][ext]'
+        }
+    };
+    
     return [
         tsLoader,
-        cssLoader
+        cssLoader,
+        imgLoader,
+        svgLoader,
     ]
 };

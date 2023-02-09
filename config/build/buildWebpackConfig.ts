@@ -11,6 +11,7 @@ export const buildWebpackConfig = ({mode, port, paths, isDev}:BuildOptions):Conf
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',
+            assetModuleFilename: 'assets/[hash][ext]',
             path: paths.build,
             clean: true
         },

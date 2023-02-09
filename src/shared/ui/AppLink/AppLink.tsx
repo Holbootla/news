@@ -9,16 +9,17 @@ export enum AppLinkVariants {
 }
 
 interface AppLinkProps extends LinkProps {
+    className?:string;
     outline?:boolean;
     underline?:boolean;
     variant?:AppLinkVariants;
 }
 
-export const AppLink:FC<AppLinkProps> = ({to, outline = false, underline = true, variant = AppLinkVariants.PRIMARY, children}) => {
+export const AppLink:FC<AppLinkProps> = ({to, className, outline = false, underline = true, variant = AppLinkVariants.PRIMARY, children}) => {
     return (
         <Link
             to={to}
-            className={classNames(classes.appLink, {[classes[variant]]:true, [classes.outline]:outline, [classes.underline]:underline}, [])}
+            className={classNames(classes.appLink, {[classes[variant]]:true, [classes.outline]:outline, [classes.underline]:underline}, [className])}
         >
             {children}
         </Link>

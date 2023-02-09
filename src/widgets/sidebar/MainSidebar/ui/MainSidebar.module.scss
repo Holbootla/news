@@ -1,0 +1,15 @@
+.mainSidebar {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - var(--navbar-height));
+  padding: 15px;
+  background-color: var(--main-sidebar-bg-color);
+  transition: .3s;
+  
+  &.opened {
+    width: 300px;
+  }
+}

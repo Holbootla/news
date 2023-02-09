@@ -10,15 +10,16 @@
 
     &.outline {
       outline: 1px solid var(--primary-link-color);
-      font-size: 20px;
     }
   }
 
   &.secondary {
     color: var(--secondary-link-color);
+    
     &:visited {
       color: var(--secondary-link-color);
     }
+    
     &.outline {
       outline: 1px solid var(--secondary-link-color);
     }

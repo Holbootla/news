@@ -1,6 +1,5 @@
 import { classNames } from "@/shared/lib";
 import classes from './Navbar.module.scss'
-import { ThemeSwitcher } from "@/shared/ThemeProvider";
 import { AppLink, AppLinkVariants } from "@/shared/ui";
 
 export const Navbar = () => {
@@ -10,7 +9,6 @@ export const Navbar = () => {
             <div className={classNames(classes.links, {}, [])}>
                 <AppLink to='/' variant={AppLinkVariants.PRIMARY} outline>Main Page</AppLink>
                 <AppLink to='/about' variant={AppLinkVariants.SECONDARY} underline={false}>About Page</AppLink>
-                <ThemeSwitcher />
             </div>
         </div>
     );

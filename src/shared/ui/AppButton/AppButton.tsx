@@ -10,12 +10,13 @@ export enum AppButtonVariants {
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?:string;
     variant?:AppButtonVariants;
+    wide?:boolean;
 }
 
-export const AppButton:FC<AppButtonProps> = ({className, variant = AppButtonVariants.PRIMARY, children, ...props}) => {
+export const AppButton:FC<AppButtonProps> = ({className, variant = AppButtonVariants.PRIMARY, wide, children, ...props}) => {
     return (
         <button
-            className={classNames(classes.appButton, {[classes[variant]]:true}, [className])}
+            className={classNames(classes.appButton, {[classes[variant]]:true, [classes.wide]:wide}, [className])}
             {...props}
         >
             {children}

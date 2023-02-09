@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useTheme } from "@/shared/ThemeProvider";
 import { Theme } from "@/shared/ThemeProvider/lib/ThemeContext";
 import LightThemeIcon from "@/shared/assets/icons/light-theme-icon.svg";

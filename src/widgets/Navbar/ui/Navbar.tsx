@@ -1,14 +1,16 @@
 import { classNames } from "@/shared/lib";
 import classes from './Navbar.module.scss'
 import { AppLink, AppLinkVariants } from "@/shared/ui";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
+    const { t } = useTranslation();
     return (
         <div className={classNames(classes.navbar, {}, [])}>
             <div />
             <div className={classNames(classes.links, {}, [])}>
-                <AppLink to='/' variant={AppLinkVariants.PRIMARY} outline>Main Page</AppLink>
-                <AppLink to='/about' variant={AppLinkVariants.SECONDARY} underline={false}>About Page</AppLink>
+                <AppLink to='/' variant={AppLinkVariants.PRIMARY} outline>{t('mainPage')}</AppLink>
+                <AppLink to='/about' variant={AppLinkVariants.SECONDARY} underline={false}>{t('aboutPage')}</AppLink>
             </div>
         </div>
     );

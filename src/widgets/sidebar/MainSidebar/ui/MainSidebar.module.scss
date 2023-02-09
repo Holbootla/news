@@ -1,5 +1,5 @@
 .mainSidebar {
-  width: 100px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +10,11 @@
   transition: .3s;
   
   &.opened {
-    width: 300px;
+    width: 400px;
+  }
+  
+  .footer {
+    display: flex;
+    column-gap: 10px;
   }
 }

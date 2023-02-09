@@ -6,6 +6,7 @@ import { ThemeSwitcher, useTheme } from "@/shared/ThemeProvider";
 import ArrowCloseIcon from "@/shared/assets/icons/arrow-previous-icon.svg"
 import ArrowOpenIcon from "@/shared/assets/icons/arrow-next-icon.svg"
 import { Theme } from "@/shared/ThemeProvider/lib/ThemeContext";
+import { LanguageSwitcher } from "@/shared/Language";
 
 interface MainSidebarProps {
     className?:string;
@@ -35,7 +36,10 @@ export const MainSidebar:FC<MainSidebarProps> = ({className, children}) => {
                 }
             </AppButton>
             {children}
-            <ThemeSwitcher />
+            <div className={classes.footer}>
+                <ThemeSwitcher />
+                <LanguageSwitcher />
+            </div>
         </div>
     );
 };

@@ -5,8 +5,8 @@ export const classNames = (mainClass:string, modClasses:ModClasses, addClasses:s
         mainClass,
         ...addClasses,
         ...Object.entries(modClasses)
-            .filter(([className, enabled]) => enabled)
-            .map(([className, enabled]) => className)
+            .filter(([_, enabled]) => enabled)
+            .map(([className]) => className),
     ]
         .join(' ')
 );

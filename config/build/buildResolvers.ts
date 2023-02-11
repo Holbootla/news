@@ -1,5 +1,5 @@
-import { ResolveOptions } from "webpack";
-import { BuildPaths } from "./Types/config";
+import { ResolveOptions } from 'webpack';
+import { BuildPaths } from './Types/config';
 
 export const buildResolvers = (paths:BuildPaths):ResolveOptions => (
     {
@@ -8,7 +8,7 @@ export const buildResolvers = (paths:BuildPaths):ResolveOptions => (
         modules: [paths.src, 'node_modules'],
         mainFiles: ['index'],
         alias: {
-            '@': paths.src
+            '@': paths.src,
         },
     }
 );

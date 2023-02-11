@@ -1,19 +1,21 @@
-import { Configuration } from "webpack";
-import { BuildOptions } from "./Types/config";
-import { buildPlugins } from "./buildPlugins";
-import { buildLoaders } from "./buildLoaders";
-import { buildResolvers } from "./buildResolvers";
-import { buildDevServer } from "./buildDevServer";
+import { Configuration } from 'webpack';
+import { BuildOptions } from './Types/config';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
-export const buildWebpackConfig = ({mode, port, paths, isDev}:BuildOptions):Configuration => (
+export const buildWebpackConfig = ({
+    mode, port, paths, isDev,
+}:BuildOptions):Configuration => (
     {
-        mode: mode,
+        mode,
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',
             assetModuleFilename: 'assets/[hash][ext]',
             path: paths.build,
-            clean: true
+            clean: true,
         },
         plugins: buildPlugins(paths, isDev),
         module: {

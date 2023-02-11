@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'airbnb',
+        'plugin:i18next/recommended',
     ],
     overrides: [
     ],
@@ -23,6 +24,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        'i18next',
     ],
     rules: {
         'max-len': ['error', 150],

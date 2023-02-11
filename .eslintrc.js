@@ -3,6 +3,7 @@ module.exports = {
         browser: true,
         node: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'eslint:recommended',
@@ -27,7 +28,7 @@ module.exports = {
         'i18next',
     ],
     rules: {
-        'max-len': ['error', 150],
+        'max-len': ['error', { code: 150, ignoreComments: true, ignoreUrls: true }],
         indent: ['error', 4],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],

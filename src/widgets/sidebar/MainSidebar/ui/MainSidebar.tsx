@@ -23,7 +23,7 @@ export const MainSidebar:FC<MainSidebarProps> = ({ className, children }) => {
     const iconFillColor = theme === Theme.LIGHT ? '#000000' : '#ffffff';
 
     return (
-        <div className={classNames(classes.mainSidebar, { [classes.opened]: isOpen }, [className])}>
+        <div className={classNames(classes.MainSidebar, { [classes.opened]: isOpen }, [className])}>
             <AppButton
                 onClick={toggleIsOpen}
                 variant={AppButtonVariants.SECONDARY}

@@ -21,7 +21,7 @@ export const AppLink:FC<AppLinkProps> = ({
     <Link
         to={to}
         className={classNames(
-            classes.appLink,
+            classes.AppLink,
             { [classes[variant]]: true, [classes.outline]: outline, [classes.underline]: underline },
             [className],
         )}

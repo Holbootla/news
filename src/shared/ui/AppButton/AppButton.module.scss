@@ -1,25 +1,25 @@
-.appButton {
-  padding: 0;
-  margin: 0;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 5px;
-  color: var(--primary-color);
-  cursor: pointer;
+.AppButton {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    color: var(--primary-color);
+    cursor: pointer;
 
-  &.primary {
-    background-color: #0000cc;
-    border: 1px solid var(--primary-color);
-  }
+    &.primary {
+        background-color: #00c;
+        border: 1px solid var(--primary-color);
+    }
 
-  &.secondary {
-    background: none;
-    border: none;
-  }
-  
-  &.wide {
-    width: 100%;
-  }
+    &.secondary {
+        background: none;
+        border: none;
+    }
+
+    &.wide {
+        width: 100%;
+    }
 }

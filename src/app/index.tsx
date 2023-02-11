@@ -11,7 +11,7 @@ export const App = () => {
 
     return (
         <Suspense fallback="loading">
-            <div className={classNames('app', {}, [theme])}>
+            <div className={classNames('App', {}, [theme])}>
                 <Navbar />
                 <div className="app-content-container">
                     <MainSidebar />

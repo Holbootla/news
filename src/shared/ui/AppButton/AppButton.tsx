@@ -22,7 +22,7 @@ export const AppButton:FC<AppButtonProps> = ({
     <button
         type="button"
         className={classNames(
-            classes.appButton,
+            classes.AppButton,
             { [classes[variant]]: true, [classes.wide]: wide },
             [className],
         )}

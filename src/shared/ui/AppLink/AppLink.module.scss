@@ -1,31 +1,31 @@
-.appLink {
-  text-decoration: none;
-  
-  &.primary {
-    color: var(--primary-link-color);
+.AppLink {
+    text-decoration: none;
 
-    &:visited {
-      color: var(--primary-link-color);
+    &.primary {
+        color: var(--primary-link-color);
+
+        &:visited {
+            color: var(--primary-link-color);
+        }
+
+        &.outline {
+            outline: 1px solid var(--primary-link-color);
+        }
     }
 
-    &.outline {
-      outline: 1px solid var(--primary-link-color);
-    }
-  }
+    &.secondary {
+        color: var(--secondary-link-color);
 
-  &.secondary {
-    color: var(--secondary-link-color);
-    
-    &:visited {
-      color: var(--secondary-link-color);
+        &:visited {
+            color: var(--secondary-link-color);
+        }
+
+        &.outline {
+            outline: 1px solid var(--secondary-link-color);
+        }
     }
-    
-    &.outline {
-      outline: 1px solid var(--secondary-link-color);
+
+    &.underline {
+        text-decoration: underline;
     }
-  }
-  
-  &.underline {
-    text-decoration: underline;
-  }
 }

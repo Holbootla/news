@@ -6,7 +6,7 @@ import { AppLink, AppLinkVariants } from '@/shared/ui';
 export const Navbar = () => {
     const { t } = useTranslation();
     return (
-        <div className={classNames(classes.navbar, {}, [])}>
+        <div className={classNames(classes.Navbar, {}, [])}>
             <div />
             <div className={classNames(classes.links, {}, [])}>
                 <AppLink to="/" variant={AppLinkVariants.PRIMARY} outline>{t('mainPage')}</AppLink>

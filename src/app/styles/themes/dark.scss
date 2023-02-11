@@ -1,13 +1,9 @@
-.app.dark {
-  --bg-color: #000000;
-
-  --primary-color: #ffffff;
-  --secondary-color: #c1c1c1;
-  
-  --navbar-bg-color: #1c1c1c;
-  
-  --main-sidebar-bg-color: #3c3c3c;
-
-  --primary-link-color: #ff0000;
-  --secondary-link-color: #aa0000;
+.App.dark {
+    --bg-color: #000;
+    --primary-color: #fff;
+    --secondary-color: #c1c1c1;
+    --navbar-bg-color: #1c1c1c;
+    --main-sidebar-bg-color: #3c3c3c;
+    --primary-link-color: #f00;
+    --secondary-link-color: #a00;
 }

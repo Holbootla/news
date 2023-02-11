@@ -12,9 +12,11 @@
 
 .app-content-container {
     display: flex;
+    height: calc(100vh - var(--navbar-height));
 }
 
 .page-wrapper {
     flex-grow: 1;
     padding: 20px;
+    height: 100%;
 }

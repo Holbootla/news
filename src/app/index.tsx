@@ -5,6 +5,7 @@ import { classNames } from '@/shared/lib';
 import { AppRouter } from '@/shared/AppRouter';
 import { Navbar } from '@/widgets/Navbar';
 import { MainSidebar } from '@/widgets/sidebar/MainSidebar';
+import { ErrorInvoker } from '@/features/ErrorInvoker';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -16,6 +17,7 @@ export const App = () => {
                 <div className="app-content-container">
                     <MainSidebar />
                     <AppRouter />
+                    <ErrorInvoker className="error-invoker" />
                 </div>
             </div>
         </Suspense>

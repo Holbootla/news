@@ -1,4 +1,7 @@
 {
   "aboutPage": "About page",
-  "mainPage": "Main page"
+  "errorMessage": "Oops... Something went wrong :(",
+  "invokeError": "Invoke error >_<",
+  "mainPage": "Main page",
+  "reloadPage": "Reload page"
 }

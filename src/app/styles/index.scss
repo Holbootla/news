@@ -8,6 +8,7 @@
     background-color: var(--bg-color);
     color: var(--primary-color);
     font: var(--font-m);
+    position: relative;
 }
 
 .app-content-container {
@@ -19,4 +20,10 @@
     flex-grow: 1;
     padding: 20px;
     height: 100%;
+}
+
+.error-invoker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

@@ -15,6 +15,7 @@ export interface BuildPaths {
 export interface BuildEnv {
     mode:BuildMode;
     port:number;
+    analyze:boolean;
 }
 
 export interface BuildOptions {
@@ -22,4 +23,5 @@ export interface BuildOptions {
     paths:BuildPaths;
     port:number;
     isDev:boolean;
+    analyze:boolean;
 }

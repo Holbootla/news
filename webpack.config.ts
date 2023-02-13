@@ -6,6 +6,7 @@ import { BuildEnv, buildMode, BuildPaths } from './config/build/Types/config';
 export default (env:BuildEnv):Configuration => {
     const mode = env.mode || buildMode.DEVELOPMENT;
     const port = env.port || 3000;
+    const { analyze } = env;
 
     const buildPaths:BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -19,5 +20,6 @@ export default (env:BuildEnv):Configuration => {
         port,
         paths: buildPaths,
         isDev: mode === buildMode.DEVELOPMENT,
+        analyze: Boolean(analyze),
     });
 };

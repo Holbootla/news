@@ -4,7 +4,7 @@ import { useTheme } from '@/shared/ThemeProvider';
 import { classNames } from '@/shared/lib';
 import { AppRouter } from '@/shared/AppRouter';
 import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar/Sidebar';
+import { Sidebar } from '@/widgets/Sidebar';
 import { ErrorInvoker } from '@/features/ErrorInvoker';
 
 export const App = () => {

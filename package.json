@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --env port=3000",
+    "start": "webpack serve --env port=3000 analyze=false",
     "start:analyze": "webpack serve --env port=3000 analyze=true",
     "build:dev": "webpack --env mode=development",
     "build:dev:analyze": "webpack --env mode=development analyze=true",

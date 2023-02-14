@@ -12,7 +12,7 @@ export const LanguageSwitcher = () => {
 
     const toggleLanguage = () => {
         const currentLanguage = i18n.language;
-        i18n.changeLanguage(currentLanguage === 'en' ? 'ru' : 'en');
+        i18n.changeLanguage(currentLanguage === 'en' ? 'ru' : 'en').then((res) => res);
     };
 
     return (

@@ -4,7 +4,7 @@ import { useTheme } from '@/shared/ThemeProvider';
 import { classNames } from '@/shared/lib';
 import { AppRouter } from '@/shared/AppRouter';
 import { Navbar } from '@/widgets/Navbar';
-import { MainSidebar } from '@/widgets/sidebar/MainSidebar';
+import { Sidebar } from '@/widgets/Sidebar/Sidebar';
 import { ErrorInvoker } from '@/features/ErrorInvoker';
 
 export const App = () => {
@@ -15,7 +15,7 @@ export const App = () => {
             <div className={classNames('App', {}, [theme])}>
                 <Navbar />
                 <div className="app-content-container">
-                    <MainSidebar />
+                    <Sidebar />
                     <AppRouter />
                     <ErrorInvoker className="error-invoker" />
                 </div>

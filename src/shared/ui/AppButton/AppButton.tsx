@@ -20,6 +20,7 @@ export const AppButton:FC<AppButtonProps> = ({
     ...props
 }) => (
     <button
+        data-testid="appButton"
         type="button"
         className={classNames(
             classes.AppButton,

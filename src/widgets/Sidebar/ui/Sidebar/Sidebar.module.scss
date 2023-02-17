@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: space-between;
     height: calc(100vh - var(--navbar-height));
-    padding: 15px;
+    padding: 20px 10px;
     background-color: var(--main-sidebar-bg-color);
     transition: 0.3s;
 
@@ -17,4 +17,12 @@
         display: flex;
         column-gap: 10px;
     }
+}
+
+.links {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px 0;
 }

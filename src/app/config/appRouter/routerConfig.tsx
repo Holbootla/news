@@ -1,17 +1,16 @@
 import { RouteProps } from 'react-router-dom';
 import { AboutPage, MainPage, NotFoundPage } from '@/pages';
 
-const AppRoutes = {
-    MAIN: 'main',
-    ABOUT: 'about',
-    NOT_FOUND: 'notFound',
-};
+const enum AppRoutes {
+    MAIN = 'main',
+    ABOUT = 'about',
+    NOT_FOUND = 'notFound',
+}
 
-const routePaths:Record<string, string> = {
+export const routePaths:Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.NOT_FOUND]: '*',
-
 };
 
 export const appRouterConfig:RouteProps[] = [

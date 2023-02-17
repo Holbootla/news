@@ -1,10 +1,10 @@
 import { Configuration } from 'webpack';
 import path from 'path';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, buildMode, BuildPaths } from './config/build/Types/config';
+import { BuildEnv, BuildMode, BuildPaths } from './config/build/Types/config';
 
 export default (env:BuildEnv):Configuration => {
-    const mode = env.mode || buildMode.DEVELOPMENT;
+    const mode = env.mode || BuildMode.DEVELOPMENT;
     const port = env.port || 3000;
     const analyze = env.analyze || false;
 
@@ -19,7 +19,7 @@ export default (env:BuildEnv):Configuration => {
         mode,
         port,
         paths: buildPaths,
-        isDev: mode === buildMode.DEVELOPMENT,
+        isDev: mode === BuildMode.DEVELOPMENT,
         analyze,
     });
 };

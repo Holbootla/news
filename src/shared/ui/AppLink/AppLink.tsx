@@ -3,10 +3,10 @@ import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from '@/shared/lib';
 import classes from './AppLink.module.scss';
 
-export const AppLinkVariants = {
-    PRIMARY: 'primary',
-    SECONDARY: 'secondary',
-} as const;
+export enum AppLinkVariants {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+}
 
 interface AppLinkProps extends LinkProps {
     className?:string;

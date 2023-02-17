@@ -1,9 +1,7 @@
-type BuildMode = 'development' | 'production';
-
-export const buildMode = {
-    DEVELOPMENT: 'development',
-    PRODUCTION: 'production',
-} as const;
+export enum BuildMode {
+    DEVELOPMENT = 'development',
+    PRODUCTION = 'production',
+}
 
 export interface BuildPaths {
     entry:string;

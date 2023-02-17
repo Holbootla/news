@@ -51,6 +51,8 @@ module.exports = {
         'react/require-default-props': 'off',
         'import/prefer-default-export': 'off',
         'no-underscore-dangle': 'off',
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': 'error',
     },
     globals: {
         __IS_DEV__: true,

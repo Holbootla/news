@@ -1,0 +1,16 @@
+{
+  "posts": [
+    { "id": 1, "title": "Post #1", "author": "Holbootla" },
+    { "id": 2, "title": "Post #2", "author": "Rudraksha" }
+  ],
+  "comments": [
+    { "id": 1, "body": "Comment for post #1", "postId": 1 },
+    { "id": 1, "body": "Comment for post #2", "postId": 2 }
+  ],
+  "profile": { "name": "Holbootla" },
+  "users": {
+    "id": 1,
+    "user": "user",
+    "password": "password"
+  }
+}

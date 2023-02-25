@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef, useState,
-} from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './AppInput.module.scss';
 
@@ -15,8 +13,8 @@ interface AppInputProps extends HTMLInputProps {
     className?:string;
     variant?: 'primary' | 'secondary';
     wide?:boolean;
-    value:string;
-    onChange:(value:string)=>void;
+    value?:string;
+    onChange?:(value:string)=>void;
 }
 
 export const AppInput:FC<AppInputProps> = ({
@@ -31,29 +29,15 @@ export const AppInput:FC<AppInputProps> = ({
     ...props
 }) => {
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
-        onChange(e.target.value);
-    };
-
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    const [isFocused, setIsFocused] = useState(false);
-
-    useEffect(() => {
-        if (autoFocus) {
-            setIsFocused(true);
-            inputRef.current.focus();
+        if (onChange) {
+            onChange(e.target.value);
         }
-    }, [autoFocus]);
-
-    const onBlur = () => {
-        setIsFocused(false);
     };
 
     return (
         <div className={classes['input-wrapper']}>
             {placeholder && <p>{placeholder}</p>}
             <input
-                ref={inputRef}
                 data-testid="appInput"
                 className={classNames(
                     classes.AppInput,
@@ -63,11 +47,9 @@ export const AppInput:FC<AppInputProps> = ({
                 value={value}
                 onChange={onChangeHandler}
                 type={type}
-                autoFocus={isFocused}
-                onBlur={onBlur}
+                autoFocus={autoFocus}
                 {...props}
             />
         </div>
-
     );
 };

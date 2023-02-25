@@ -1,6 +1,8 @@
 {
   "aboutPage": "About page",
+  "decrement": "Decrement",
   "errorMessage": "Oops... Something went wrong :(",
+  "increment": "Increment",
   "invokeError": "Invoke error >_<",
   "mainPage": "Main page",
   "reloadPage": "Reload page"

@@ -1,6 +1,8 @@
 {
   "aboutPage": "О сайте",
+  "decrement": "Отнять",
   "errorMessage": "Что-то пошло не так :(",
+  "increment": "Прибавить",
   "invokeError": "Вызвать ошибку >_<",
   "mainPage": "Главная страница",
   "reloadPage": "Перезагрузить страницу"

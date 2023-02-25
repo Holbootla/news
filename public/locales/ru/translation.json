@@ -5,5 +5,8 @@
   "increment": "increment",
   "invokeError": "Вызвать ошибку >_<",
   "mainPage": "Главная страница",
-  "reloadPage": "Перезагрузить страницу"
+  "name": "Имя",
+  "password": "Пароль",
+  "reloadPage": "Перезагрузить страницу",
+  "signIn": "Войти"
 }

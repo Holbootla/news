@@ -5,5 +5,8 @@
   "increment": "increment",
   "invokeError": "Invoke error >_<",
   "mainPage": "Main page",
-  "reloadPage": "Reload page"
+  "name": "Name",
+  "password": "Password",
+  "reloadPage": "Reload page",
+  "signIn": "Sign in"
 }

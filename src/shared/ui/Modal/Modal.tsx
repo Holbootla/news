@@ -1,5 +1,5 @@
 import {
-    FC, MouseEvent, ReactNode,
+    FC, MouseEvent, ReactNode, useEffect, useState,
 } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './Modal.module.scss';
@@ -10,14 +10,27 @@ interface ModalProps {
     children:ReactNode;
     isOpen:boolean;
     onClose:()=>void;
+    lazy?:boolean;
 }
 
 export const Modal:FC<ModalProps> = ({
-    className, children, isOpen, onClose,
+    className, children, isOpen, onClose, lazy,
 }) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
     const onBodyClick = (e:MouseEvent) => {
         e.stopPropagation();
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
@@ -25,11 +38,11 @@ export const Modal:FC<ModalProps> = ({
                 className={classNames(classes.Modal, { [classes.opened]: isOpen }, [className])}
             >
                 <div
-                    className={classNames(classes.overlay, {}, [className])}
+                    className={classes.overlay}
                     onClick={onClose}
                 >
                     <div
-                        className={classNames(classes.body, {}, [className])}
+                        className={classes.body}
                         onClick={onBodyClick}
                     >
                         {children}

@@ -1,0 +1,26 @@
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.AppInput {
+    width: 400px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+
+    &.primary {
+        background-color: #00c;
+    }
+
+    &.secondary {
+        background: none;
+    }
+
+    &.wide {
+        width: 100%;
+    }
+}

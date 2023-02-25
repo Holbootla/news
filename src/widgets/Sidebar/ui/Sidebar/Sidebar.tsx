@@ -44,7 +44,7 @@ export const Sidebar:FC<SidebarProps> = ({ className }) => {
                         : <ArrowOpenIcon stroke={iconFillColor} width={40} height={40} />
                 }
             </AppButton>
-            <div className={classNames(classes.links, {}, [])}>
+            <div className={classes.links}>
                 <AppLink to={routePaths.main} variant={AppLinkVariants.PRIMARY} outline>{t('mainPage')}</AppLink>
                 <AppLink to={routePaths.about} variant={AppLinkVariants.SECONDARY} underline={false}>{t('aboutPage')}</AppLink>
             </div>

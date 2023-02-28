@@ -8,9 +8,11 @@
     { "id": 1, "body": "Comment for post #2", "postId": 2 }
   ],
   "profile": { "name": "Holbootla" },
-  "users": {
-    "id": 1,
-    "user": "user",
-    "password": "password"
-  }
+  "users": [
+    {
+      "id": 1,
+      "username": "username",
+      "password": "password"
+    }
+  ]
 }

@@ -44,7 +44,6 @@ module.exports = {
         'import/no-extraneous-dependencies': ['error', {
             devDependencies: true,
         }],
-        'react/jsx-props-no-spreading': 'warn',
         'no-unused-vars': 'warn',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
@@ -58,6 +57,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
+        'react/jsx-props-no-spreading': 'off',
     },
     globals: {
         __IS_DEV__: true,

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Modal } from './Modal';
 
 export default {
@@ -16,3 +16,6 @@ const Template: ComponentStory<typeof Modal> = (args) => (
 );
 
 export const Default = Template.bind({});
+Default.args = {
+    isOpen: true,
+};

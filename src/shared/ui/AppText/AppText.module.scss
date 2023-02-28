@@ -1,0 +1,25 @@
+.AppText {
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+
+    &.primary {
+        color: var(--primary-color);
+    }
+
+    &.secondary {
+        color: var(--secondary-color);
+    }
+
+    &.critical {
+        color: var(--critical-color);
+    }
+}
+
+.title {
+    font: var(--font-l);
+}
+
+.text {
+    font: var(--font-m);
+}

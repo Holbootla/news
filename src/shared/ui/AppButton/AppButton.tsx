@@ -16,6 +16,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const AppButton:FC<AppButtonProps> = ({
     className, variant = AppButtonVariants.PRIMARY,
     wide,
+    disabled,
     children,
     ...props
 }) => (
@@ -24,9 +25,14 @@ export const AppButton:FC<AppButtonProps> = ({
         type="button"
         className={classNames(
             classes.AppButton,
-            { [classes[variant]]: true, [classes.wide]: wide },
+            {
+                [classes[variant]]: true,
+                [classes.wide]: wide,
+                [classes.disabled]: disabled,
+            },
             [className],
         )}
+        disabled={disabled}
         {...props}
     >
         {children}

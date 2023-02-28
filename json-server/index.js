@@ -27,7 +27,7 @@ server.post('/login', (req, res) => {
         const userFromBd = users.find(
             (user) => user.username === username && user.password === password,
         );
-
+        console.log(userFromBd, users, username, password);
         if (userFromBd) {
             return res.json(userFromBd);
         }
@@ -52,6 +52,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+server.listen(8080, () => {
+    console.log('server is running on 8080 port');
 });

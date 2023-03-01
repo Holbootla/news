@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib';
+import { classNames, ReducersList, useDynamicReducerLoading } from '@/shared/lib';
 import classes from './LoginForm.module.scss';
 import { AppButton, AppInput } from '@/shared/ui';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -16,10 +16,16 @@ interface LoginFormProps {
     className?:string;
 }
 
-export const LoginForm = memo(({ className }:LoginFormProps) => {
+const initialReducers:ReducersList = {
+    login: loginReducer,
+};
+
+const LoginForm = memo(({ className }:LoginFormProps) => {
     const { t } = useTranslation();
 
     const dispatch = useDispatch();
+
+    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -66,3 +72,5 @@ export const LoginForm = memo(({ className }:LoginFormProps) => {
         </div>
     );
 });
+
+export default LoginForm;

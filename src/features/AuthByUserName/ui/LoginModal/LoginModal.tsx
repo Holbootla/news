@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import { Modal } from '@/shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { AsyncLoginForm } from '../LoginForm/LoginForm.async';
+import { AppSpinner } from '@/shared/ui';
 
 interface LoginModalProps {
     isOpen:boolean;
@@ -13,6 +14,8 @@ export const LoginModal:FC<LoginModalProps> = ({ isOpen, onClose }) => (
         onClose={onClose}
         lazy
     >
-        <LoginForm />
+        <Suspense fallback={<AppSpinner />}>
+            <AsyncLoginForm />
+        </Suspense>
     </Modal>
 );

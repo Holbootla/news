@@ -17,7 +17,7 @@ export const renderCustom = (component:ReactNode, options:RenderCustomOptions = 
         initialState,
     } = options;
 
-    render(
+    return render(
         <StoreProvider initialState={initialState}>
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18nForTest}>

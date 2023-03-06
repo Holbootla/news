@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './AppButton.module.scss';
 
@@ -11,15 +11,16 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?:string;
     variant?: 'primary' | 'secondary';
     wide?:boolean;
+    children?:ReactNode;
 }
 
-export const AppButton:FC<AppButtonProps> = ({
+export const AppButton = memo(({
     className, variant = AppButtonVariants.PRIMARY,
     wide,
     disabled,
     children,
     ...props
-}) => (
+}:AppButtonProps) => (
     <button
         data-testid="appButton"
         type="button"
@@ -37,4 +38,4 @@ export const AppButton:FC<AppButtonProps> = ({
     >
         {children}
     </button>
-);
+));

@@ -1,13 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { AppButton } from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib';
 
-export const Counter = () => {
+export const Counter = memo(() => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const counterValue = useSelector(getCounterValue);
 
     const increment = () => {
@@ -35,4 +37,4 @@ export const Counter = () => {
             </AppButton>
         </div>
     );
-};
+});

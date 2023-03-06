@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 import { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider';
+import { useAppDispatch } from '@/shared/lib';
 
 export type ReducersList = {
     [key in StateSchemaKey]?: Reducer;
@@ -15,7 +16,7 @@ interface UseDynamicReducerLoadingProps {
 }
 
 export const useDynamicReducerLoading = ({ reducers, removeAfterUnmount }:UseDynamicReducerLoadingProps) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const store = useStore() as ReduxStoreWithManager;
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]:ReducersListEntry) => {

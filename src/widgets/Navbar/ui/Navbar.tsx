@@ -1,9 +1,7 @@
-import {
-    FC, useCallback, useEffect, useState,
-} from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib';
+import { useSelector } from 'react-redux';
+import { classNames, useAppDispatch } from '@/shared/lib';
 import classes from './Navbar.module.scss';
 import { AppButton } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUserName';
@@ -13,10 +11,10 @@ interface NavbarProps {
     className?:string;
 }
 
-export const Navbar:FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }:NavbarProps) => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const authData = useSelector(getUserAuthData);
 
@@ -34,10 +32,6 @@ export const Navbar:FC<NavbarProps> = ({ className }) => {
         dispatch(userActions.deleteAuthData());
     }, [dispatch]);
 
-    useEffect(() => {
-        setIsLoginModal(false);
-    }, [authData]);
-
     if (authData) {
         return (
             <div className={classNames(classes.Navbar, {}, [className])}>
@@ -54,4 +48,4 @@ export const Navbar:FC<NavbarProps> = ({ className }) => {
             <LoginModal isOpen={isLoginModal} onClose={closeLoginModal} />
         </div>
     );
-};
+});

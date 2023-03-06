@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib';
 
 interface MainPageProps {
     className?:string;
 }
 
-const MainPage:FC<MainPageProps> = ({ className }) => {
+const MainPage = memo(({ className }:MainPageProps) => {
     const { t } = useTranslation('mainPage');
 
     return (
@@ -14,6 +14,6 @@ const MainPage:FC<MainPageProps> = ({ className }) => {
             <h1>{t('mainPageTitle')}</h1>
         </div>
     );
-};
+});
 
 export default MainPage;

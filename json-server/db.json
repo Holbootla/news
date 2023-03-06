@@ -7,11 +7,20 @@
     { "id": "1", "body": "Comment for post #1", "postId": "1" },
     { "id": "1", "body": "Comment for post #2", "postId": "2" }
   ],
-  "profile": { "name": "Holbootla" },
+  "profile": {
+    "username": "admin",
+    "firstName": "Andrey",
+    "lastName": "Bachinsky",
+    "age": "40",
+    "country": "Australia",
+    "city": "Sidney",
+    "currency": "AUD",
+    "avatar": "https://avatars.githubusercontent.com/u/70381959"
+  },
   "users": [
     {
       "id": "1",
-      "username": "username",
+      "username": "",
       "password": "password"
     }
   ]

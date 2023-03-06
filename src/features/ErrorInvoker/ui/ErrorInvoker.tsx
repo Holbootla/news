@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib';
 import { AppButton } from '@/shared/ui';
@@ -7,7 +7,7 @@ interface ErrorInvokerProps {
     className?:string;
 }
 
-export const ErrorInvoker:FC<ErrorInvokerProps> = ({ className }) => {
+export const ErrorInvoker = memo(({ className }:ErrorInvokerProps) => {
     const { t } = useTranslation();
 
     const [isError, setIsError] = useState<boolean>();
@@ -31,4 +31,4 @@ export const ErrorInvoker:FC<ErrorInvokerProps> = ({ className }) => {
             {t('invokeError')}
         </AppButton>
     );
-};
+});

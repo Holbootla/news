@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './AppError.module.scss';
 
@@ -7,7 +7,7 @@ interface AppErrorProps {
     className?:string;
 }
 
-export const AppError:FC<AppErrorProps> = ({ className }) => {
+export const AppError = memo(({ className }:AppErrorProps) => {
     const { t } = useTranslation();
 
     const reloadPage = () => {
@@ -21,4 +21,4 @@ export const AppError:FC<AppErrorProps> = ({ className }) => {
             <button type="button" onClick={reloadPage}>{t('reloadPage')}</button>
         </div>
     );
-};
+});

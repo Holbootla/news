@@ -1,4 +1,6 @@
-import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
+import {
+    ChangeEvent, InputHTMLAttributes, memo, ReactNode,
+} from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './AppInput.module.scss';
 
@@ -15,9 +17,10 @@ interface AppInputProps extends HTMLInputProps {
     wide?:boolean;
     value?:string;
     onChange?:(value:string)=>void;
+    children?:ReactNode;
 }
 
-export const AppInput:FC<AppInputProps> = ({
+export const AppInput = memo(({
     className,
     variant = AppInputVariants.PRIMARY,
     wide,
@@ -27,7 +30,7 @@ export const AppInput:FC<AppInputProps> = ({
     placeholder,
     autoFocus,
     ...props
-}) => {
+}:AppInputProps) => {
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
         if (onChange) {
             onChange(e.target.value);
@@ -52,4 +55,4 @@ export const AppInput:FC<AppInputProps> = ({
             />
         </div>
     );
-};
+});

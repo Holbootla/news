@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './AppText.module.scss';
 
@@ -15,9 +15,9 @@ interface AppTextProps {
     text?:string;
 }
 
-export const AppText:FC<AppTextProps> = ({
+export const AppText = memo(({
     className, variant = AppTextVariants.PRIMARY, title, text,
-}) => (
+}:AppTextProps) => (
     <div
         data-testid="AppText"
         className={classNames(classes.AppText, { [classes[variant]]: true }, [className])}
@@ -25,4 +25,4 @@ export const AppText:FC<AppTextProps> = ({
         {title && <h5 className={classes.title}>{title}</h5>}
         {text && <p className={classes.text}>{text}</p>}
     </div>
-);
+));

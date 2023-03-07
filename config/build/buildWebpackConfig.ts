@@ -6,7 +6,7 @@ import { buildResolvers } from './buildResolvers';
 import { buildDevServer } from './buildDevServer';
 
 export const buildWebpackConfig = ({
-    mode, port, paths, isDev, analyze,
+    mode, port, paths, isDev, analyze, api,
 }:BuildOptions):Configuration => (
     {
         mode,
@@ -17,7 +17,7 @@ export const buildWebpackConfig = ({
             path: paths.build,
             clean: true,
         },
-        plugins: buildPlugins(paths, isDev, analyze),
+        plugins: buildPlugins(paths, isDev, analyze, api),
         module: {
             rules: buildLoaders(isDev),
         },

@@ -20,7 +20,7 @@
   "users": [
     {
       "id": "1",
-      "username": "",
+      "username": "admin",
       "password": "password"
     }
   ]

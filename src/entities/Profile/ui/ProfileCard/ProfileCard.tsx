@@ -29,35 +29,35 @@ export const ProfileCard = ({ className }:ProfileCardProps) => {
             </div>
             <div className={classes.data}>
                 <AppInput
-                    value={data?.username}
+                    value={data?.username ?? ''}
                     placeholder={t('username')}
                 />
                 <AppInput
-                    value={data?.firstName}
+                    value={data?.firstName ?? ''}
                     placeholder={t('firstName')}
                 />
                 <AppInput
-                    value={data?.lastName}
+                    value={data?.lastName ?? ''}
                     placeholder={t('lastName')}
                 />
                 <AppInput
-                    value={data?.age?.toString()}
+                    value={data?.age?.toString() ?? ''}
                     placeholder={t('age')}
                 />
                 <AppInput
-                    value={data?.country}
+                    value={data?.country ?? ''}
                     placeholder={t('country')}
                 />
                 <AppInput
-                    value={data?.city}
+                    value={data?.city ?? ''}
                     placeholder={t('city')}
                 />
                 <AppInput
-                    value={data?.currency}
+                    value={data?.currency ?? ''}
                     placeholder={t('currency')}
                 />
                 <AppInput
-                    value={data?.avatar}
+                    value={data?.avatar ?? ''}
                     placeholder={t('avatar')}
                 />
             </div>

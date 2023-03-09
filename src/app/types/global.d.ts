@@ -21,10 +21,4 @@ declare module '*.png' {
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
 
-// declare module 'i18next' {
-//     interface CustomTypeOptions {
-//         returnNull: false;
-//     }
-// }
-
 type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]>; } : T;

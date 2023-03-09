@@ -1,3 +1,13 @@
 {
-  "profilePageTitle": "Это профиль"
+  "age": "Возраст",
+  "avatar": "Аватар",
+  "city": "Город",
+  "country": "Страна",
+  "currency": "Валюта",
+  "edit": "Редактировать",
+  "firstName": "Имя",
+  "lastName": "Фамилия",
+  "profile": "Профиль",
+  "profilePageTitle": "Это профиль",
+  "username": "Имя пользователя"
 }

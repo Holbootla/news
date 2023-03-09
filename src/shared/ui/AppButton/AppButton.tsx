@@ -15,7 +15,8 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const AppButton = memo(({
-    className, variant = AppButtonVariants.PRIMARY,
+    className,
+    variant = AppButtonVariants.PRIMARY,
     wide,
     disabled,
     children,

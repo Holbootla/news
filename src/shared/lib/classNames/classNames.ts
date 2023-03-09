@@ -1,6 +1,6 @@
-type ModClasses = Record<string, boolean>
+type ModClasses = Record<string, boolean | undefined>
 
-export const classNames = (mainClass:string, modClasses:ModClasses, addClasses:string[]):string => (
+export const classNames = (mainClass:string | undefined, modClasses:ModClasses, addClasses:Array<string | undefined>):string => (
     [
         mainClass,
         ...addClasses,

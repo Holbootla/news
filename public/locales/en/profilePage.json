@@ -1,3 +1,13 @@
 {
-  "profilePageTitle": "Profile page title"
+  "age": "Age",
+  "avatar": "Avatar",
+  "city": "City",
+  "country": "Country",
+  "currency": "Currency",
+  "edit": "Edit",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "profile": "Profile",
+  "profilePageTitle": "Profile page title",
+  "username": "Username"
 }

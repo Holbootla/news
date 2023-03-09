@@ -58,6 +58,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
         'react/jsx-props-no-spreading': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,

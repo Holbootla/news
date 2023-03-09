@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib';
 import { AppButton } from '@/shared/ui';
+import { classNames } from '@/shared/lib';
 
 interface ErrorInvokerProps {
     className?:string;
@@ -24,7 +24,7 @@ export const ErrorInvoker = memo(({ className }:ErrorInvokerProps) => {
 
     return (
         <AppButton
-            className={classNames(null, {}, [className])}
+            className={classNames(undefined, {}, [className])}
             variant="primary"
             onClick={invokeError}
         >

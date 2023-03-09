@@ -11,7 +11,7 @@ export interface StateSchema {
     counter:CounterSchema,
     user:UserSchema,
     login?:LoginSchema,
-    profile?:ProfileSchema
+    profile?:ProfileSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

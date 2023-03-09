@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 0;
     column-gap: 5px;
     color: var(--primary-color);
     cursor: pointer;

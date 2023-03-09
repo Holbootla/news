@@ -18,19 +18,17 @@ export const loginSlice = createSlice({
         setPassword: (state, action:PayloadAction<string>) => {
             state.password = action.payload;
         },
-        clearLoginData: (state) => {
-            state.username = '';
-            state.password = '';
-        },
     },
     extraReducers: (builder) => {
         builder
             .addCase(loginByUserName.pending, (state) => {
-                state.error = null;
+                state.error = undefined;
                 state.isLoading = true;
             })
             .addCase(loginByUserName.fulfilled, (state, action) => {
                 state.isLoading = false;
+                state.username = '';
+                state.password = '';
             })
             .addCase(loginByUserName.rejected, (state, action) => {
                 state.isLoading = false;

@@ -11,6 +11,7 @@ i18n
             escapeValue: false,
         },
         resources: { en: { translations: {} } },
+        returnNull: false,
     });
 
 export default i18n;

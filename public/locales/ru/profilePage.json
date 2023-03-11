@@ -12,5 +12,14 @@
   "profileError": "Ошибка загрузки профиля",
   "profilePageTitle": "Это профиль",
   "save": "save",
-  "username": "Имя пользователя"
+  "username": "Имя пользователя",
+  "INCORRECT_USERNAME": "Неверное имя пользователя",
+  "INCORRECT_FIRSTNAME": "Неверное имя",
+  "INCORRECT_LASTNAME": "Неверная фамилия",
+  "INCORRECT_AGE": "Неверный возраст",
+  "INCORRECT_COUNTRY": "Неверная страна",
+  "INCORRECT_CITY": "Неверный город",
+  "INCORRECT_CURRENCY": "Неверная валюта",
+  "INCORRECT_AVATAR": "Неверная ссылка на аватар",
+  "SERVER_ERROR": "Ошибка сервера"
 }

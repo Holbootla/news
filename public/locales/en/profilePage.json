@@ -12,5 +12,14 @@
   "profileError": "Profile loading error",
   "profilePageTitle": "Profile page title",
   "save": "save",
-  "username": "Username"
+  "username": "Username",
+  "INCORRECT_USERNAME": "Incorrect username",
+  "INCORRECT_FIRSTNAME": "Incorrect first name",
+  "INCORRECT_LASTNAME": "Incorrect last name",
+  "INCORRECT_AGE": "Incorrect age",
+  "INCORRECT_COUNTRY": "Incorrect country",
+  "INCORRECT_CITY": "Incorrect city",
+  "INCORRECT_CURRENCY": "Incorrect currency",
+  "INCORRECT_AVATAR": "Incorrect avatar link",
+  "SERVER_ERROR": "Server error"
 }

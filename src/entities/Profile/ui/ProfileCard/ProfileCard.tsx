@@ -22,6 +22,9 @@ import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
 import DefaultAvatar from '@/shared/assets/images/default-avatar.jpg';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
+import {
+    getProfileValidateErrors,
+} from '@/entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface ProfileCardProps {
     className?:string;
@@ -46,6 +49,7 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
     const formData = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
+    const validateErrors = useSelector(getProfileValidateErrors);
     const readonly = useSelector(getProfileReadonly);
 
     const profileData = useMemo(() => (readonly ? data : formData), [data, formData, readonly]);
@@ -102,7 +106,7 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
 
     if (error) {
         return (
-            <AppText title={t('profileError')} text={error} variant={AppTextVariants.CRITICAL} />
+            <AppText title={t('profileError')} text={t(error)} variant={AppTextVariants.CRITICAL} />
         );
     }
 
@@ -123,6 +127,11 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
                     )}
                 </div>
             </div>
+            {validateErrors && (
+                validateErrors.map((err) => (
+                    <AppText key={err} text={t(err)} variant={AppTextVariants.CRITICAL} />
+                ))
+            )}
             <AppAvatar source={profileData?.avatar || DefaultAvatar} className={classes.avatar} />
             <div className={classes.data}>
                 <AppInput

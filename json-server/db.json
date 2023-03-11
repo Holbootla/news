@@ -1,17 +1,33 @@
 {
   "posts": [
-    { "id": "1", "title": "Post #1", "author": "Holbootla" },
-    { "id": "2", "title": "Post #2", "author": "Rudraksha" }
+    {
+      "id": "1",
+      "title": "Post #1",
+      "author": "Holbootla"
+    },
+    {
+      "id": "2",
+      "title": "Post #2",
+      "author": "Rudraksha"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "Comment for post #1", "postId": "1" },
-    { "id": "1", "body": "Comment for post #2", "postId": "2" }
+    {
+      "id": "1",
+      "body": "Comment for post #1",
+      "postId": "1"
+    },
+    {
+      "id": "1",
+      "body": "Comment for post #2",
+      "postId": "2"
+    }
   ],
   "profile": {
     "username": "admin",
     "firstName": "Andrey",
     "lastName": "Bachinsky",
-    "age": "40",
+    "age": 32,
     "country": "Australia",
     "city": "Sidney",
     "currency": "AUD",

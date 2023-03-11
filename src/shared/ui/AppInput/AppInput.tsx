@@ -9,7 +9,7 @@ export enum AppInputVariants {
     SECONDARY = 'secondary',
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'autoFocus' | 'disabled' >;
 
 interface AppInputProps extends HTMLInputProps {
     className?:string;
@@ -17,6 +17,8 @@ interface AppInputProps extends HTMLInputProps {
     wide?:boolean;
     value?:string;
     onChange?:(value:string)=>void;
+    autoFocus?:boolean;
+    disabled?:boolean;
     children?:ReactNode;
 }
 
@@ -28,7 +30,8 @@ export const AppInput = memo(({
     onChange,
     type = 'text',
     placeholder,
-    autoFocus,
+    autoFocus = false,
+    disabled = false,
     ...props
 }:AppInputProps) => {
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
@@ -44,13 +47,14 @@ export const AppInput = memo(({
                 data-testid="appInput"
                 className={classNames(
                     classes.AppInput,
-                    { [classes[variant]]: true, [classes.wide]: wide },
+                    { [classes[variant]]: true, [classes.wide]: wide, [classes.disabled]: disabled },
                     [className],
                 )}
                 value={value}
                 onChange={onChangeHandler}
                 type={type}
                 autoFocus={autoFocus}
+                disabled={disabled}
                 {...props}
             />
         </div>

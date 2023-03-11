@@ -1,6 +1,7 @@
 {
   "age": "Возраст",
   "avatar": "Аватар",
+  "cancel": "cancel",
   "city": "Город",
   "country": "Страна",
   "currency": "Валюта",
@@ -8,6 +9,8 @@
   "firstName": "Имя",
   "lastName": "Фамилия",
   "profile": "Профиль",
+  "profileError": "Ошибка загрузки профиля",
   "profilePageTitle": "Это профиль",
+  "save": "save",
   "username": "Имя пользователя"
 }

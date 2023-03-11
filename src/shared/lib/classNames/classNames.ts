@@ -1,4 +1,4 @@
-type ModClasses = Record<string, boolean | undefined>
+export type ModClasses = Record<string, boolean | undefined>
 
 export const classNames = (mainClass:string | undefined, modClasses:ModClasses, addClasses:Array<string | undefined>):string => (
     [

@@ -15,7 +15,7 @@ export default {
         'node',
     ],
     moduleNameMapper: {
-        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.(s?css|png|jpg)$': 'identity-obj-proxy',
         '\\.svg': '<rootDir>config/test/EmptyComponent.tsx',
         '@/(.*)': '<rootDir>src/$1',
     },

@@ -1,5 +1,7 @@
 {
   "aboutPage": "About page",
+  "country": "country",
+  "currency": "currency",
   "decrement": "Decrement",
   "error": "Error",
   "errorMessage": "Oops... Something went wrong :(",
@@ -12,5 +14,6 @@
   "password": "Password",
   "profilePage": "Profile page",
   "reloadPage": "Reload page",
-  "signIn": "Sign in"
+  "signIn": "Sign in",
+  "userAvatar": "userAvatar"
 }

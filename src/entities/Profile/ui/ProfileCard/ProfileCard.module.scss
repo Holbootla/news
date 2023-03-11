@@ -5,8 +5,18 @@
     margin-bottom: 20px;
 }
 
+.header-buttons {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
 .data {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+}
+
+.avatar {
+    margin-bottom: 10px;
 }

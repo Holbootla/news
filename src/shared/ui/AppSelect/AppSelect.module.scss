@@ -1,0 +1,15 @@
+.AppSelect {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.select {
+    background-color: #00c;
+    width: 400px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}

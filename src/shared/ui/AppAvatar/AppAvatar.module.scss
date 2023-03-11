@@ -1,0 +1,26 @@
+.AppAvatar {
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+}
+
+.small {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.medium {
+    min-width: 200px;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+}
+
+.large {
+    min-width: 300px;
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
+}

@@ -1,6 +1,7 @@
 {
   "age": "Age",
   "avatar": "Avatar",
+  "cancel": "cancel",
   "city": "City",
   "country": "Country",
   "currency": "Currency",
@@ -8,6 +9,8 @@
   "firstName": "First name",
   "lastName": "Last name",
   "profile": "Profile",
+  "profileError": "Profile loading error",
   "profilePageTitle": "Profile page title",
+  "save": "save",
   "username": "Username"
 }

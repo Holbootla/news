@@ -1,8 +1,11 @@
 import { RuleSetRule } from 'webpack';
 import { buildCSSLoader } from './loaders/CSSLoader';
+import { buildBabelLoader } from './loaders/babelLoader';
 
 export const buildLoaders = (isDev:boolean):RuleSetRule[] => {
     const cssLoader = buildCSSLoader(isDev);
+
+    const babelLoader = buildBabelLoader();
 
     const tsLoader = {
         test: /\.tsx?$/,
@@ -24,17 +27,6 @@ export const buildLoaders = (isDev:boolean):RuleSetRule[] => {
         use: ['@svgr/webpack'],
         generator: {
             filename: 'icons/[hash][ext]',
-        },
-    };
-
-    const babelLoader = {
-        test: /\.[t|j]sx?$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
         },
     };
 

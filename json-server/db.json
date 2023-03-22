@@ -28,9 +28,9 @@
     "firstName": "Andrey",
     "lastName": "Bachinsky",
     "age": 32,
-    "country": "AUSTRALIA",
+    "country": "australia",
     "city": "Sidney",
-    "currency": "AUD",
+    "currency": "aud",
     "avatar": "https://avatars.githubusercontent.com/u/70381959"
   },
   "users": [

@@ -37,12 +37,14 @@ const initialReducers:ReducersList = {
 export const ProfileCard = memo(({ className }:ProfileCardProps) => {
     const { t } = useTranslation('profilePage');
 
-    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: false });
+    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
 
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const data = useSelector(getProfileData);

@@ -23,5 +23,6 @@ export default (env:BuildEnv):Configuration => {
         isDev: mode === BuildMode.DEVELOPMENT,
         analyze,
         api,
+        project: 'frontend',
     });
 };

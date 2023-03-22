@@ -15,8 +15,8 @@ export default {
         'node',
     ],
     moduleNameMapper: {
-        '\\.(s?css|png|jpg)$': 'identity-obj-proxy',
-        '\\.svg': '<rootDir>config/test/EmptyComponent.tsx',
+        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.(svg|png|jpg)$': '<rootDir>config/test/EmptyComponent.tsx',
         '@/(.*)': '<rootDir>src/$1',
     },
     rootDir: '../../',
@@ -28,5 +28,6 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: '',
+        __PROJECT__: 'jest',
     },
 };

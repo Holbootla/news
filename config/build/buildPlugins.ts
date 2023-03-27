@@ -7,7 +7,7 @@ export const buildPlugins = ({
     paths, isDev, analyze, api, project,
 }:BuildOptions):WebpackPluginInstance[] => {
     const plugins = [
-        new HtmlWebpackPlugin({ template: paths.html }),
+        new HtmlWebpackPlugin({ template: paths.html, publicPath: '/' }),
         new ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/name.[contenthash:8].css',

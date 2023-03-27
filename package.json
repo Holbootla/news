@@ -22,9 +22,9 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
-    "test:ui:chromatic": "npx chromatic --project-token=ada6f4fac306 --exit-zero-on-changes",
     "storybook": "start-storybook -p 6006 -c ./config/storybook/",
     "storybook:build": "build-storybook -c ./config/storybook/",
+    "chromatic": "npx chromatic --project-token=ada6f4fac306 --exit-zero-on-changes",
     "start:dev:full": "concurrently \"npm:start:dev:server\" \"npm:start\" \"npm:storybook\""
   },
   "author": "",

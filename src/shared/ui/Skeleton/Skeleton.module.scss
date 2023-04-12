@@ -1,0 +1,16 @@
+.Skeleton {
+    background:
+        linear-gradient(
+            90deg,
+            var(--skeleton-color1) 40%,
+            var(--skeleton-color2),
+            var(--skeleton-color1) 60%
+        )
+        right/300% 100%;
+    animation: loading 1s linear infinite;
+    box-shadow: 2px 2px 8px 1px var(--skeleton-shadow);
+}
+
+@keyframes loading {
+    to { background-position: left; }
+}

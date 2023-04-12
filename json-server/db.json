@@ -1,28 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "Post #1",
-      "author": "Holbootla"
-    },
-    {
-      "id": "2",
-      "title": "Post #2",
-      "author": "Rudraksha"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "body": "Comment for post #1",
-      "postId": "1"
-    },
-    {
-      "id": "1",
-      "body": "Comment for post #2",
-      "postId": "2"
-    }
-  ],
   "profile": {
     "username": "admin",
     "firstName": "Andrey",
@@ -38,6 +14,79 @@
       "id": "1",
       "username": "admin",
       "password": "password"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "password"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "Lorem ipsum dolor sit",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
+      "img": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Himeji_castle_in_may_2015.jpg",
+      "views": 666,
+      "createdAt": "27.03.2023",
+      "type": ["history"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "text",
+          "title": "",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "code",
+          "code": "const root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(<h1>Hello, world!</h1>);"
+        },
+        {
+          "id": "3",
+          "type": "text",
+          "title": "Lorem ipsum dolor sit amet, consectetur.",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "image",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "src": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Himeji_castle_in_may_2015.jpg"
+        },
+        {
+          "id": "5",
+          "type": "text",
+          "title": "Lorem ipsum dolor sit amet, consectetur.",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque."
+          ]
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "Comment for post #1",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "1",
+      "body": "Comment for post #2",
+      "articleId": "1",
+      "userId": "2"
     }
   ]
 }

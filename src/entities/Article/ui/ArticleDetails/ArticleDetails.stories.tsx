@@ -1,15 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ArticleDetailsPage from './ArticleDetailsPage';
-import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
+import { ArticleDetails } from './ArticleDetails';
 import { ReducersList } from '@/shared/lib';
 import { articleReducer } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 
 export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-} as ComponentMeta<typeof ArticleDetailsPage>;
+    title: 'entities/ArticleDetails',
+    component: ArticleDetails,
+} as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
 const asyncReducers:ReducersList = {
     article: articleReducer,
@@ -18,7 +18,13 @@ const asyncReducers:ReducersList = {
 export const Default = Template.bind({});
 Default.args = {};
 Default.decorators = [StoreDecorator(
-    {},
+    {
+        article: {
+            data: {},
+            error: undefined,
+            isLoading: false,
+        },
+    },
     asyncReducers,
 )];
 

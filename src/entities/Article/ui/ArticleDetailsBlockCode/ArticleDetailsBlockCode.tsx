@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib';
 import { ArticleCodeBlock } from '../../model/types/article';
 import { AppCode } from '@/shared/ui';
 
@@ -8,14 +8,11 @@ interface ArticleDetailsBlockCodeProps {
     block:ArticleCodeBlock
 }
 
-export const ArticleDetailsBlockCode = memo(({ className, block }:ArticleDetailsBlockCodeProps) => {
-    const { t } = useTranslation();
-
-    return (
-        <div
-            data-testid="ArticleDetailsBlockCode"
-        >
-            <AppCode text={block.code} />
-        </div>
-    );
-});
+export const ArticleDetailsBlockCode = memo(({ className, block }:ArticleDetailsBlockCodeProps) => (
+    <div
+        data-testid="ArticleDetailsBlockCode"
+        className={classNames('', {}, [className])}
+    >
+        <AppCode text={block.code} />
+    </div>
+));

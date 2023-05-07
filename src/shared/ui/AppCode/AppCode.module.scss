@@ -1,0 +1,14 @@
+.AppCode {
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--code-bg-color);
+    padding: 60px 30px;
+    position: relative;
+    overflow-x: auto;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

@@ -4,3 +4,5 @@ export { AppInput, AppInputVariants } from './AppInput/AppInput';
 export { AppSpinner } from './AppSpinner/AppSpinner';
 export { AppError } from './AppError/AppError';
 export { Skeleton } from './Skeleton/Skeleton';
+export { Icon } from './Icon/Icon';
+export { AppCode } from './AppCode/AppCode';

@@ -26,7 +26,7 @@
       "id": "1",
       "title": "Lorem ipsum dolor sit",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
-      "img": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Himeji_castle_in_may_2015.jpg",
+      "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "createdAt": "27.03.2023",
       "type": ["history"],
@@ -34,7 +34,7 @@
         {
           "id": "1",
           "type": "text",
-          "title": "",
+          "title": "Lorem ipsum dolor sit amet.",
           "paragraphs": [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
@@ -60,7 +60,7 @@
           "id": "4",
           "type": "image",
           "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "src": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Himeji_castle_in_may_2015.jpg"
+          "src": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg"
         },
         {
           "id": "5",

@@ -1,13 +1,39 @@
-export type ArticleBlockType = 'text' | 'image' | 'code';
-
-export interface ArticleBlock {
-    id: string,
-    type: ArticleBlockType,
-    title: string,
-    paragraphs: Array<string>
+export enum ArticleBlockType {
+    CODE = 'code',
+    IMAGE = 'image',
+    TEXT = 'text',
 }
 
-export type ArticleType = 'history' | 'it' | 'live';
+export interface ArticleBlockBase {
+    id: string,
+    type: ArticleBlockType;
+}
+
+export interface ArticleTextBlock extends ArticleBlockBase {
+    type: ArticleBlockType.TEXT;
+    paragraphs: Array<string>
+    title?: string,
+}
+
+export interface ArticleImageBlock extends ArticleBlockBase {
+    type: ArticleBlockType.IMAGE;
+    src: string;
+    title?: string;
+}
+
+export interface ArticleCodeBlock extends ArticleBlockBase {
+    type: ArticleBlockType.CODE;
+    code: string;
+    title?: string,
+}
+
+export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
+
+export enum ArticleType {
+    HISTORY = 'history',
+    IT = 'it',
+    LIVE = 'live',
+}
 
 export interface Article {
     id: string,

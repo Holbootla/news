@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
@@ -10,8 +10,15 @@ import { getArticleError } from '../../model/selectors/getArticleError/getArticl
 import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
 import { articleReducer } from '../../model/slice/articleSlice';
 import { AppText, AppTextVariants } from '@/shared/ui/AppText/AppText';
-import { Skeleton } from '@/shared/ui';
-import { getArticleIsLoading } from '@/entities/Article/model/selectors/getArticleIsLoading/getArticleIsLoading';
+import { Icon, Skeleton } from '@/shared/ui';
+import { getArticleIsLoading } from '../../model/selectors/getArticleIsLoading/getArticleIsLoading';
+import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleDetailsBlockCode } from '../ArticleDetailsBlockCode/ArticleDetailsBlockCode';
+import { ArticleDetailsBlockImage } from '../ArticleDetailsBlockImage/ArticleDetailsBlockImage';
+import { ArticleDetailsBlockText } from '../ArticleDetailsBlockText/ArticleDetailsBlockText';
 
 interface ArticleDetailsProps {
     className?:string;
@@ -38,6 +45,19 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
         }
     }, [dispatch, id]);
 
+    const renderBlock = useCallback((block:ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return <ArticleDetailsBlockCode key={id + block.id} block={block} className={classes.block} />;
+        case ArticleBlockType.IMAGE:
+            return <ArticleDetailsBlockImage key={id + block.id} block={block} className={classes.block} />;
+        case ArticleBlockType.TEXT:
+            return <ArticleDetailsBlockText key={id + block.id} block={block} className={classes.block} />;
+        default:
+            return null;
+        }
+    }, [id]);
+
     if (isLoading) {
         return (
             <div
@@ -45,8 +65,11 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
                 className={classNames(classes.ArticleDetails, {}, [className])}
             >
                 <Skeleton className={classes.avatar} width={200} height={200} borderRadius="50%" />
-                <Skeleton className={classes.title} width="100%" height={50} />
-                <Skeleton className={classes['article-body']} width="100%" height={400} />
+                <Skeleton className={classes.title} width="60%" height={50} />
+                <Skeleton className={classes['sub-title']} width="30%" height={30} />
+                <Skeleton className={classes['article-info']} width={120} height={25} />
+                <Skeleton className={classes['article-info']} width={120} height={25} />
+                <Skeleton className={classNames(classes['article-body'], {}, [classes.block])} width="100%" height={400} />
             </div>
         );
     }
@@ -62,7 +85,18 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
             data-testid="ArticleDetails"
             className={classNames(classes.ArticleDetails, {}, [className])}
         >
-            {JSON.stringify(data?.title)}
+            {data?.img && <AppAvatar className={classes.avatar} source={data.img} />}
+            <h1 className={classes.title}>{data?.title}</h1>
+            <AppText className={classes['sub-title']} title={data?.subtitle} />
+            <div className={classes['article-info']}>
+                <Icon Svg={EyeIcon} size="s" />
+                <AppText text={`${data?.views}`} />
+            </div>
+            <div className={classes['article-info']}>
+                <Icon Svg={CalendarIcon} size="s" />
+                <AppText text={`${data?.createdAt}`} />
+            </div>
+            {data?.blocks?.map((block) => renderBlock(block))}
         </div>
     );
 });

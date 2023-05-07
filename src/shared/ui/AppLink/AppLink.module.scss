@@ -8,7 +8,7 @@
         color: var(--primary-link-color);
 
         svg {
-            fill: var(--primary-link-color);
+            fill: var(--primary-link-color) !important;
         }
 
         &:visited {
@@ -22,6 +22,10 @@
 
     &.secondary {
         color: var(--secondary-link-color);
+
+        svg {
+            fill: var(--secondary-link-color) !important;
+        }
 
         &:visited {
             color: var(--secondary-link-color);

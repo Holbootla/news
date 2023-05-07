@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib';
 import classes from './SidebarItem.module.scss';
-import { AppLink, AppLinkVariants } from '@/shared/ui';
+import { AppLink, AppLinkVariants, Icon } from '@/shared/ui';
 import { ISidebarItem } from '../../model/SidebarItemList';
 import { getUserAuthData } from '@/entities/User';
 
@@ -28,7 +28,7 @@ export const SidebarItem = memo(({
             to={item.path}
             variant={AppLinkVariants.PRIMARY}
         >
-            <item.Icon width={40} height={40} />
+            <Icon Svg={item.Icon} />
             <span className={classNames(classes['link-text'], { [classes.closed]: !isOpen }, [])}>{t(item.text)}</span>
         </AppLink>
     );

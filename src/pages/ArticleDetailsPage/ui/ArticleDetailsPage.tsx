@@ -1,12 +1,15 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { ArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails';
+import { ArticleComments, ArticleDetails } from '@/entities/Article';
 
 const ArticleDetailsPage = memo(() => {
     const { id } = useParams();
 
     return (
-        <ArticleDetails id={id} />
+        <>
+            <ArticleDetails id={id} />
+            <ArticleComments id={id} />
+        </>
     );
 });
 

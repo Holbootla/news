@@ -1,10 +1,13 @@
 {
   "aboutPage": "О сайте",
   "age": "age",
-  "articleError": "articleError",
+  "articleCommentsError": "Ошибка при загрузке комментариев",
+  "articleError": "Ошибка при загрузке статьи",
+  "articlesPage": "Статьи",
   "avatar": "avatar",
   "cancel": "cancel",
   "city": "city",
+  "comments": "Комментарии",
   "copy": "copy",
   "country": "country",
   "currency": "currency",
@@ -18,7 +21,7 @@
   "invokeError": "Вызвать ошибку >_<",
   "lastName": "lastName",
   "logOut": "Выход",
-  "mainPage": "Главная страница",
+  "mainPage": "Главная",
   "name": "Имя",
   "password": "Пароль",
   "profile": "profile",
@@ -27,6 +30,6 @@
   "reloadPage": "Перезагрузить страницу",
   "save": "save",
   "signIn": "Войти",
-  "userAvatar": "userAvatar",
+  "userAvatar": "Аватар",
   "username": "username"
 }

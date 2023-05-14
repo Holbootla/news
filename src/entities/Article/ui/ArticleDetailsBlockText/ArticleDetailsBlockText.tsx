@@ -14,7 +14,7 @@ export const ArticleDetailsBlockText = memo(({ className, block }:ArticleDetails
         data-testid="ArticleDetailsBlockText"
         className={classNames(classes.ArticleDetailsBlockText, {}, [className])}
     >
-        {block.title && <h2>{block.title}</h2>}
+        {block.title && <h3>{block.title}</h3>}
         {block.paragraphs.map((paragraph) => <AppText key={paragraph} text={paragraph} className={classes.paragraph} />)}
     </div>
 ));

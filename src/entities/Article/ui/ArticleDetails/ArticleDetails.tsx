@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
@@ -19,6 +19,7 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleDetailsBlockCode } from '../ArticleDetailsBlockCode/ArticleDetailsBlockCode';
 import { ArticleDetailsBlockImage } from '../ArticleDetailsBlockImage/ArticleDetailsBlockImage';
 import { ArticleDetailsBlockText } from '../ArticleDetailsBlockText/ArticleDetailsBlockText';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 interface ArticleDetailsProps {
     className?:string;
@@ -39,11 +40,7 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
     const error = useSelector(getArticleError);
     const data = useSelector(getArticleData);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
-            dispatch(fetchArticleDataById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => dispatch(fetchArticleDataById(id)));
 
     const renderBlock = useCallback((block:ArticleBlock) => {
         switch (block.type) {
@@ -76,7 +73,17 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
 
     if (error) {
         return (
-            <AppText title={t('articleError')} text={t(error)} variant={AppTextVariants.CRITICAL} />
+            <div
+                data-testid="ArticleDetails"
+                className={classNames(classes.ArticleDetails, {}, [className])}
+            >
+                <AppText
+                    title={t('articleError')}
+                    text={t(error)}
+                    variant={AppTextVariants.CRITICAL}
+                    className={classNames(classes.ArticleDetails, {}, [className])}
+                />
+            </div>
         );
     }
 

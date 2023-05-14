@@ -26,7 +26,7 @@ export const SidebarItemList:ISidebarItem[] = [
     },
     {
         path: routePaths.articles,
-        text: 'articles',
+        text: 'articlesPage',
         Icon: ArticleIcon,
         authOnly: true,
     },

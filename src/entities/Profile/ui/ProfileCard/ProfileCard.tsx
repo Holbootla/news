@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-    memo, useCallback, useEffect, useMemo,
-} from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import {
     classNames, ReducersList, useAppDispatch, useDynamicReducerLoading,
 } from '@/shared/lib';
@@ -25,6 +23,7 @@ import { Country, CountrySelect } from '@/entities/Country';
 import {
     getProfileValidateErrors,
 } from '@/entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 interface ProfileCardProps {
     className?:string;
@@ -41,11 +40,7 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => dispatch(fetchProfileData()));
 
     const data = useSelector(getProfileData);
     const formData = useSelector(getProfileFormData);

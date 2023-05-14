@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { articleReducer } from './articleSlice';
 import { ArticleSchema } from '../types/article';
 import { fetchArticleDataById } from '../services/fetchArticleDataById/fetchArticleDataById';

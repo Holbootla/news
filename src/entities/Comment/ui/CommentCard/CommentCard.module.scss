@@ -1,0 +1,23 @@
+.CommentCard {
+    padding: 10px 20px;
+    border: 1px solid var(--secondary-color);
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    margin-right: 10px;
+}
+
+.usernname {
+    color: var(--primary-link-color);
+}
+
+.text {
+    font: var(--font-s);
+}

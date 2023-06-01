@@ -20,6 +20,7 @@ interface AppInputProps extends HTMLInputProps {
     autoFocus?:boolean;
     disabled?:boolean;
     children?:ReactNode;
+    label?:string;
 }
 
 export const AppInput = memo(({
@@ -29,6 +30,7 @@ export const AppInput = memo(({
     value,
     onChange,
     type = 'text',
+    label,
     placeholder,
     autoFocus = false,
     disabled = false,
@@ -41,14 +43,20 @@ export const AppInput = memo(({
     };
 
     return (
-        <div className={classes['input-wrapper']}>
-            {placeholder && <p>{placeholder}</p>}
+        <div
+            className={classNames(
+                classes['input-wrapper'],
+                { [classes.wide]: wide },
+                [className],
+            )}
+        >
+            {label && <p>{label}</p>}
             <input
                 data-testid="appInput"
                 className={classNames(
                     classes.AppInput,
-                    { [classes[variant]]: true, [classes.wide]: wide, [classes.disabled]: disabled },
-                    [className],
+                    { [classes[variant]]: true, [classes.disabled]: disabled },
+                    [],
                 )}
                 value={value}
                 onChange={onChangeHandler}
@@ -56,6 +64,7 @@ export const AppInput = memo(({
                 autoFocus={autoFocus}
                 disabled={disabled}
                 {...props}
+                placeholder={placeholder}
             />
         </div>
     );

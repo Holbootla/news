@@ -2,10 +2,15 @@
     display: flex;
     align-items: center;
     column-gap: 5px;
+    width: 400px;
+
+    &.wide {
+        width: 100%;
+    }
 }
 
 .AppInput {
-    width: 400px;
+    width: 100%;
     padding: 5px;
     display: flex;
     align-items: center;
@@ -20,11 +25,11 @@
         background: none;
     }
 
-    &.wide {
-        width: 100%;
-    }
-
     &.disabled {
         opacity: 0.8;
+    }
+
+    &::placeholder {
+        color: var(--secondary-color);
     }
 }

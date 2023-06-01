@@ -1,5 +1,6 @@
 {
   "aboutPage": "О сайте",
+  "addCommentError": "addCommentError",
   "age": "age",
   "articleCommentsError": "Ошибка при загрузке комментариев",
   "articleError": "Ошибка при загрузке статьи",
@@ -29,7 +30,9 @@
   "profilePage": "Профиль",
   "reloadPage": "Перезагрузить страницу",
   "save": "save",
+  "send": "Отправить",
   "signIn": "Войти",
+  "typeYourCommentHere": "Введите текст комментария",
   "userAvatar": "Аватар",
   "username": "username"
 }

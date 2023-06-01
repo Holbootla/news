@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ProfileCard } from './ProfileCard';
 import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 import { ReducersList } from '@/shared/lib';
@@ -7,6 +7,7 @@ import { ValidateProfileError } from '../../model/types/profile';
 import DefaultAvatar from '@/shared/assets/images/default-avatar.jpg';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { userReducer } from '@/entities/User';
 
 export default {
     title: 'entities/ProfileCard',
@@ -17,9 +18,11 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...
 
 const asyncReducers:ReducersList = {
     profile: profileReducer,
+    user: userReducer,
 };
 
 const userData = {
+    id: '1',
     username: 'username',
     firstName: 'Ivan',
     lastName: 'Ivanov',
@@ -42,6 +45,11 @@ Default.decorators = [
                 readonly: true,
                 validateErrors: undefined,
             },
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
         },
         asyncReducers,
     ),
@@ -58,6 +66,11 @@ ServerError.decorators = [
                 isLoading: false,
                 readonly: true,
                 validateErrors: undefined,
+            },
+            user: {
+                authData: {
+                    id: '1',
+                },
             },
         },
         asyncReducers,
@@ -80,6 +93,11 @@ ValidationError.decorators = [
                     ValidateProfileError.INCORRECT_AGE,
                 ],
             },
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
         },
         asyncReducers,
     ),
@@ -96,6 +114,11 @@ Loading.decorators = [
                 isLoading: true,
                 readonly: true,
                 validateErrors: undefined,
+            },
+            user: {
+                authData: {
+                    id: '1',
+                },
             },
         },
         asyncReducers,

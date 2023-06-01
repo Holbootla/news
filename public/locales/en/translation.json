@@ -1,5 +1,6 @@
 {
   "aboutPage": "About page",
+  "addCommentError": "addCommentError",
   "age": "age",
   "articleCommentsError": "Article comments loading error",
   "articleError": "Article loading error",
@@ -29,7 +30,9 @@
   "profilePage": "Profile page",
   "reloadPage": "Reload page",
   "save": "save",
+  "send": "Send",
   "signIn": "Sign in",
+  "typeYourCommentHere": "Type your comment here",
   "userAvatar": "userAvatar",
   "username": "username"
 }

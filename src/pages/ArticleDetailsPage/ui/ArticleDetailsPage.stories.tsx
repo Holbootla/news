@@ -4,7 +4,8 @@ import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 import { ReducersList } from '@/shared/lib';
 import { articleDataMock, articleReducer } from '@/entities/Article';
 import { articleCommentsNormalizedDataMock } from '@/entities/Article/model/mocks/articleCommentsNormalizedDataMock';
-import { articleCommentsReducer } from '@/entities/Article/model/slice/articleCommentsSlice';
+import { articleCommentsReducer } from '../model/slice/articleCommentSlice/articleCommentsSlice';
+import { addArticleCommentReducer } from '../model/slice/addArticleCommentSlice/addArticleCommentSlice';
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -16,6 +17,7 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetail
 const asyncReducers:ReducersList = {
     article: articleReducer,
     articleComments: articleCommentsReducer,
+    addArticleComment: addArticleCommentReducer,
 };
 
 export const Default = Template.bind({});
@@ -30,6 +32,10 @@ Default.decorators = [StoreDecorator(
         articleComments: {
             ids: ['1', '2'],
             entities: articleCommentsNormalizedDataMock,
+            error: undefined,
+            isLoading: false,
+        },
+        addArticleComment: {
             error: undefined,
             isLoading: false,
         },
@@ -51,6 +57,10 @@ Loading.decorators = [StoreDecorator(
             entities: {},
             error: undefined,
             isLoading: true,
+        },
+        addArticleComment: {
+            error: undefined,
+            isLoading: false,
         },
     },
     asyncReducers,

@@ -1,14 +1,28 @@
 {
-  "profile": {
-    "username": "admin",
-    "firstName": "Andrey",
-    "lastName": "Bachinsky",
-    "age": 32,
-    "country": "australia",
-    "city": "Sidney",
-    "currency": "aud",
-    "avatar": "https://avatars.githubusercontent.com/u/70381959"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "username": "admin",
+      "firstName": "Andrey",
+      "lastName": "Bachinsky",
+      "age": 32,
+      "country": "australia",
+      "city": "Sidney",
+      "currency": "aud",
+      "avatar": "https://avatars.githubusercontent.com/u/70381959"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "firstName": "Vasiliy",
+      "lastName": "Gdenosiliy",
+      "age": 32,
+      "country": "australia",
+      "city": "Sidney",
+      "currency": "usd",
+      "avatar": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -31,7 +45,9 @@
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "createdAt": "27.03.2023",
-      "type": ["history"],
+      "type": [
+        "history"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -89,6 +105,18 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus. Proin eget enim egestas, volutpat metus laoreet, dignissim turpis. Vivamus odio sem, convallis id volutpat a, aliquam a mi. In metus ipsum, tincidunt eu sollicitudin ut, venenatis ut neque. Fusce malesuada urna eget varius fermentum. Vestibulum elementum sodales mattis. Quisque.",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "id": "JE3RMKm"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus.",
+      "id": "EZ-D3e_"
     }
   ]
 }

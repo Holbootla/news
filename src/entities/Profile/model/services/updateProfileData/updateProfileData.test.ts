@@ -6,6 +6,7 @@ import { ValidateProfileError } from '../../types/profile';
 
 describe('updateProfileData async service tests', () => {
     const userData = {
+        id: '1',
         username: 'username',
         firstName: 'Ivan',
         lastName: 'Ivanov',
@@ -23,7 +24,7 @@ describe('updateProfileData async service tests', () => {
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ data: userData }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -36,8 +37,8 @@ describe('updateProfileData async service tests', () => {
                 formData: userData,
             },
         });
-        thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        thunk.api.put.mockReturnValue(Promise.resolve({ status: 500 }));
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
@@ -50,7 +51,7 @@ describe('updateProfileData async service tests', () => {
                 formData: { ...userData, username: '' },
             },
         });
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.put).toHaveBeenCalledTimes(0);
         expect(result.meta.requestStatus).toBe('rejected');

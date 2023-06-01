@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import {
     classNames, ReducersList, useAppDispatch, useDynamicReducerLoading,
 } from '@/shared/lib';
@@ -24,6 +25,7 @@ import {
     getProfileValidateErrors,
 } from '@/entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { getUserAuthData } from '@/entities/User';
 
 interface ProfileCardProps {
     className?:string;
@@ -36,11 +38,17 @@ const initialReducers:ReducersList = {
 export const ProfileCard = memo(({ className }:ProfileCardProps) => {
     const { t } = useTranslation('profilePage');
 
-    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
-
     const dispatch = useAppDispatch();
 
-    useInitialEffect(() => dispatch(fetchProfileData()));
+    const { id } = useParams();
+
+    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
 
     const data = useSelector(getProfileData);
     const formData = useSelector(getProfileFormData);
@@ -48,6 +56,9 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
     const error = useSelector(getProfileError);
     const validateErrors = useSelector(getProfileValidateErrors);
     const readonly = useSelector(getProfileReadonly);
+    const authData = useSelector(getUserAuthData);
+
+    const canEdit = id === authData?.id;
 
     const profileData = useMemo(() => (readonly ? data : formData), [data, formData, readonly]);
 
@@ -60,8 +71,8 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
     }, [dispatch]);
 
     const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        dispatch(updateProfileData(id));
+    }, [dispatch, id]);
 
     const onChangeUsername = useCallback((value:string) => {
         dispatch(profileActions.setFormData({ username: value ?? '' }));
@@ -114,15 +125,17 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
         >
             <div className={classes.header}>
                 <h1>{t('profile')}</h1>
-                <div className={classes['header-buttons']}>
-                    {readonly && <AppButton onClick={onEdit}>{t('edit')}</AppButton>}
-                    {!readonly && (
-                        <>
-                            <AppButton onClick={onCancel}>{t('cancel')}</AppButton>
-                            <AppButton onClick={onSave}>{t('save')}</AppButton>
-                        </>
-                    )}
-                </div>
+                {canEdit && (
+                    <div className={classes['header-buttons']}>
+                        {readonly && <AppButton onClick={onEdit}>{t('edit')}</AppButton>}
+                        {!readonly && (
+                            <>
+                                <AppButton onClick={onCancel}>{t('cancel')}</AppButton>
+                                <AppButton onClick={onSave}>{t('save')}</AppButton>
+                            </>
+                        )}
+                    </div>
+                )}
             </div>
             {validateErrors && (
                 validateErrors.map((err) => (
@@ -133,25 +146,25 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
             <div className={classes.data}>
                 <AppInput
                     value={profileData?.username ?? ''}
-                    placeholder={t('username')}
+                    label={t('username')}
                     disabled={readonly}
                     onChange={onChangeUsername}
                 />
                 <AppInput
                     value={profileData?.firstName ?? ''}
-                    placeholder={t('firstName')}
+                    label={t('firstName')}
                     disabled={readonly}
                     onChange={onChangeFirstName}
                 />
                 <AppInput
                     value={profileData?.lastName ?? ''}
-                    placeholder={t('lastName')}
+                    label={t('lastName')}
                     disabled={readonly}
                     onChange={onChangeLastName}
                 />
                 <AppInput
                     value={profileData?.age?.toString() ?? ''}
-                    placeholder={t('age')}
+                    label={t('age')}
                     disabled={readonly}
                     onChange={onChangeAge}
                 />
@@ -162,7 +175,7 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
                 />
                 <AppInput
                     value={profileData?.city ?? ''}
-                    placeholder={t('city')}
+                    label={t('city')}
                     disabled={readonly}
                     onChange={onChangeCity}
                 />
@@ -173,7 +186,7 @@ export const ProfileCard = memo(({ className }:ProfileCardProps) => {
                 />
                 <AppInput
                     value={profileData?.avatar ?? ''}
-                    placeholder={t('avatar')}
+                    label={t('avatar')}
                     disabled={readonly}
                     onChange={onChangeAvatar}
                 />

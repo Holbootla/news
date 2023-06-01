@@ -57,7 +57,7 @@ const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
                 type="text"
                 value={username}
                 onChange={onChangeUsername}
-                placeholder={t('name')}
+                label={t('name')}
                 wide
                 autoFocus
             />
@@ -65,7 +65,7 @@ const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
                 type="password"
                 value={password}
                 onChange={onChangePassword}
-                placeholder={t('password')}
+                label={t('password')}
                 wide
             />
             <AppButton

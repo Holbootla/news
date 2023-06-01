@@ -6,6 +6,7 @@ import { fetchProfileData } from '@/entities/Profile/model/services/fetchProfile
 
 describe('profileSlice', () => {
     const data = {
+        id: '1',
         username: 'username',
         firstName: 'Ivan',
         lastName: 'Ivanov',
@@ -82,7 +83,7 @@ describe('profileSlice', () => {
             formData: undefined,
         };
         expect(
-            profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, '')),
+            profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(data, '1', '')),
         )
             .toEqual({
                 isLoading: false,

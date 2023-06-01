@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ import { CommentList } from '@/entities/Comment';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AppText } from '@/shared/ui/AppText/AppText';
+import { AppSpinner } from '@/shared/ui';
 
 const initialReducers:ReducersList = {
     articleComments: articleCommentsReducer,
@@ -52,7 +53,9 @@ const ArticleDetailsPage = memo(() => {
         <>
             <ArticleDetails id={id} />
             <AppText title={t('comments')} />
-            <AddCommentForm onSendComment={onSendComment} error={addArticleCommentError} isLoading={addArticleCommentIsLoading} />
+            <Suspense fallback={<AppSpinner />}>
+                <AddCommentForm onSendComment={onSendComment} error={addArticleCommentError} isLoading={addArticleCommentIsLoading} />
+            </Suspense>
             <CommentList comments={comments} isLoading={articleCommentIsLoading} error={articleCommentError} />
         </>
     );

@@ -11,6 +11,11 @@ export const articleDataMock:Article = {
     img: 'https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg',
     views: 666,
     createdAt: '27.03.2023',
+    user: {
+        id: '1',
+        username: 'admin',
+        avatar: 'https://avatars.githubusercontent.com/u/70381959',
+    },
     type: [ArticleType.HISTORY],
     blocks: [
         blockTextDataMock,

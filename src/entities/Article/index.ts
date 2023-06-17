@@ -1,4 +1,5 @@
-export { ArticleSchema } from './model/types/article';
+export { ArticleSchema, ArticleListView } from './model/types/article';
 export { articleReducer } from './model/slice/articleSlice';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { articleDataMock } from './model/mocks/articleDataMock';
+export { ArticleList } from './ui/ArticleList/ArticleList';

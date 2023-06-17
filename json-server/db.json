@@ -44,6 +44,7 @@
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
+      "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
         "history"

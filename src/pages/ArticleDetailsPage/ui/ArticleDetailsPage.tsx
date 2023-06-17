@@ -1,7 +1,8 @@
 import { memo, Suspense, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import classes from './ArticleDetailsPage.module.scss';
 import { ArticleDetails } from '@/entities/Article';
 import { AddCommentForm } from '@/features/AddComment';
 import { ReducersList, useAppDispatch, useDynamicReducerLoading } from '@/shared/lib';
@@ -20,7 +21,8 @@ import { CommentList } from '@/entities/Comment';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AppText } from '@/shared/ui/AppText/AppText';
-import { AppSpinner } from '@/shared/ui';
+import { AppButton, AppSpinner } from '@/shared/ui';
+import { routePaths } from '@/app/config';
 
 const initialReducers:ReducersList = {
     articleComments: articleCommentsReducer,
@@ -29,6 +31,8 @@ const initialReducers:ReducersList = {
 
 const ArticleDetailsPage = memo(() => {
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
 
     const { id } = useParams();
 
@@ -49,8 +53,13 @@ const ArticleDetailsPage = memo(() => {
         dispatch(sendArticleComment(value));
     }, [dispatch]);
 
+    const onBackToArticles = useCallback(() => {
+        navigate(routePaths.articles);
+    }, [navigate]);
+
     return (
         <>
+            <AppButton onClick={onBackToArticles} className={classes['back-btn']}>{t('backToArticles')}</AppButton>
             <ArticleDetails id={id} />
             <AppText title={t('comments')} />
             <Suspense fallback={<AppSpinner />}>

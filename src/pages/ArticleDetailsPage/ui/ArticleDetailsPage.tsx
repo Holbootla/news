@@ -12,7 +12,7 @@ import { getAddArticleCommentError } from '../model/selectors/getAddArticleComme
 import {
     getAddArticleCommentIsLoading,
 } from '../model/selectors/getAddArticleCommentIsLoading/getAddArticleCommentIsLoading';
-import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentSlice/articleCommentsSlice';
+import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice/articleCommentsSlice';
 import {
     getArticleCommentsIsLoading,
 } from '../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';

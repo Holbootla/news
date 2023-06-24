@@ -4,7 +4,7 @@ import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 import { ReducersList } from '@/shared/lib';
 import { articleDataMock, articleReducer } from '@/entities/Article';
 import { articleCommentsNormalizedDataMock } from '@/entities/Article/model/mocks/articleCommentsNormalizedDataMock';
-import { articleCommentsReducer } from '../model/slice/articleCommentSlice/articleCommentsSlice';
+import { articleCommentsReducer } from '../model/slice/articleCommentsSlice/articleCommentsSlice';
 import { addArticleCommentReducer } from '../model/slice/addArticleCommentSlice/addArticleCommentSlice';
 
 export default {

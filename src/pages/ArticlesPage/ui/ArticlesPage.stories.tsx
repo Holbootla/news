@@ -1,5 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticlesPage from './ArticlesPage';
+import { ReducersList } from '@/shared/lib';
+import { articleDataMock } from '@/entities/Article';
+import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPageSlice';
+import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'pages/ArticlesPage',
@@ -8,4 +12,23 @@ export default {
 
 const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
 
+const asyncReducers:ReducersList = {
+    articlesPage: articlesPageReducer,
+};
+
 export const Default = Template.bind({});
+Default.decorators = [StoreDecorator(
+    {
+        articlesPage: {
+            entities: { [articleDataMock.id]: articleDataMock },
+            ids: [articleDataMock.id],
+            page: 2,
+            hasMore: false,
+            limit: 9,
+            view: 'grid',
+            error: undefined,
+            isLoading: false,
+        },
+    },
+    asyncReducers,
+)];

@@ -57,7 +57,7 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
 
     if (isLoading) {
         return (
-            <div
+            <article
                 data-testid="ArticleDetails"
                 className={classNames(classes.ArticleDetails, {}, [className])}
             >
@@ -67,13 +67,13 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
                 <Skeleton className={classes['article-info']} width={120} height={25} />
                 <Skeleton className={classes['article-info']} width={120} height={25} />
                 <Skeleton className={classNames(classes['article-body'], {}, [classes.block])} width="100%" height={400} />
-            </div>
+            </article>
         );
     }
 
     if (error) {
         return (
-            <div
+            <article
                 data-testid="ArticleDetails"
                 className={classNames(classes.ArticleDetails, {}, [className])}
             >
@@ -83,12 +83,12 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
                     variant={AppTextVariants.CRITICAL}
                     className={classNames(classes.ArticleDetails, {}, [className])}
                 />
-            </div>
+            </article>
         );
     }
 
     return (
-        <div
+        <article
             data-testid="ArticleDetails"
             className={classNames(classes.ArticleDetails, {}, [className])}
         >
@@ -104,6 +104,6 @@ export const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
                 <AppText text={`${data?.createdAt}`} />
             </div>
             {data?.blocks?.map((block) => renderBlock(block))}
-        </div>
+        </article>
     );
 });

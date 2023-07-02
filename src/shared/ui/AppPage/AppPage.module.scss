@@ -1,0 +1,8 @@
+.AppPage {
+    flex-grow: 1;
+    width: 100%;
+    padding: 40px 5% 40px 10%;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    position: relative;
+}

@@ -13,6 +13,11 @@ import { getArticlesPageView } from '../model/selectors/getArticlesPageView/getA
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import { SelectArticlesView } from '@/features/SelectArticlesView';
+import { AppPage } from '@/shared/ui';
+import { getArticlesPagePage } from '@/pages/ArticlesPage/model/selectors/getArticlesPagePage/getArticlesPagePage';
+import {
+    getArticlesPageHasMore,
+} from '@/pages/ArticlesPage/model/selectors/getArticlesPageHasMore/getArticlesPageHasMore';
 
 interface MainPageProps {
     className?:string;
@@ -32,18 +37,32 @@ const ArticlesPage = memo(({ className }:MainPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const page = useSelector(getArticlesPagePage);
+    const hasMore = useSelector(getArticlesPageHasMore);
 
     const articles = useSelector(getArticles.selectAll);
 
-    useInitialEffect(() => dispatch(fetchArticles()));
+    useInitialEffect(() => {
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticles({
+            page: 1,
+        }));
+    });
+
+    const onLoadNextArticles = useCallback(() => {
+        if (hasMore && !isLoading) {
+            dispatch(fetchArticles({
+                page,
+            }));
+        }
+    }, [dispatch, hasMore, isLoading, page]);
 
     const onChangeView = useCallback((viewType:ArticleListView) => {
         dispatch(articlesPageActions.setView(viewType));
-        dispatch(articlesPageActions.initState());
     }, [dispatch]);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <AppPage className={classNames('', {}, [className])} onScrollEnd={onLoadNextArticles}>
             <h1>{t('articlesPageTitle')}</h1>
             <SelectArticlesView view={view} onChange={onChangeView} className={classes['select-articles-view']} />
             <ArticleList
@@ -51,7 +70,7 @@ const ArticlesPage = memo(({ className }:MainPageProps) => {
                 view={view}
                 isLoading={isLoading}
             />
-        </div>
+        </AppPage>
     );
 });
 

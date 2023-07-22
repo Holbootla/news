@@ -16,10 +16,14 @@ interface UseDynamicReducerLoadingProps {
 export const useDynamicReducerLoading = ({ reducers, removeAfterUnmount }:UseDynamicReducerLoadingProps) => {
     const dispatch = useAppDispatch();
     const store = useStore() as ReduxStoreWithManager;
+    const mountedReducers = store.reducerManager.getReducerMap();
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name}` });
+            const mounted = Object.keys(mountedReducers).includes(name);
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name}` });
+            }
         });
         return () => {
             if (removeAfterUnmount) {
@@ -29,5 +33,5 @@ export const useDynamicReducerLoading = ({ reducers, removeAfterUnmount }:UseDyn
                 });
             }
         };
-    }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
+    }, [dispatch, mountedReducers, reducers, removeAfterUnmount, store.reducerManager]);
 };

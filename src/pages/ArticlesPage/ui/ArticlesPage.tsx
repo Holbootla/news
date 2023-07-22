@@ -18,6 +18,9 @@ import { getArticlesPagePage } from '@/pages/ArticlesPage/model/selectors/getArt
 import {
     getArticlesPageHasMore,
 } from '@/pages/ArticlesPage/model/selectors/getArticlesPageHasMore/getArticlesPageHasMore';
+import {
+    getArticlesPageInited,
+} from '@/pages/ArticlesPage/model/selectors/getArticlesPageInited/getArticlesPageInited';
 
 interface MainPageProps {
     className?:string;
@@ -32,21 +35,24 @@ const ArticlesPage = memo(({ className }:MainPageProps) => {
 
     const dispatch = useAppDispatch();
 
-    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
+    useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: false });
 
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const page = useSelector(getArticlesPagePage);
     const hasMore = useSelector(getArticlesPageHasMore);
+    const inited = useSelector(getArticlesPageInited);
 
     const articles = useSelector(getArticles.selectAll);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticles({
-            page: 1,
-        }));
+        if (!inited) {
+            dispatch(articlesPageActions.initState());
+            dispatch(fetchArticles({
+                page: 1,
+            }));
+        }
     });
 
     const onLoadNextArticles = useCallback(() => {

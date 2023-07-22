@@ -7,4 +7,3 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { Icon } from './Icon/Icon';
 export { AppCode } from './AppCode/AppCode';
 export { AppCard } from './AppCard/AppCard';
-export { AppPage } from './AppPage/AppPage';

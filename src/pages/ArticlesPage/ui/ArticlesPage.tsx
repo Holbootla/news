@@ -13,7 +13,6 @@ import { getArticlesPageView } from '../model/selectors/getArticlesPageView/getA
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import { SelectArticlesView } from '@/features/SelectArticlesView';
-import { AppPage } from '@/shared/ui';
 import { getArticlesPagePage } from '@/pages/ArticlesPage/model/selectors/getArticlesPagePage/getArticlesPagePage';
 import {
     getArticlesPageHasMore,
@@ -21,6 +20,7 @@ import {
 import {
     getArticlesPageInited,
 } from '@/pages/ArticlesPage/model/selectors/getArticlesPageInited/getArticlesPageInited';
+import { Page } from '@/widgets/Page';
 
 interface MainPageProps {
     className?:string;
@@ -68,7 +68,7 @@ const ArticlesPage = memo(({ className }:MainPageProps) => {
     }, [dispatch]);
 
     return (
-        <AppPage className={classNames('', {}, [className])} onScrollEnd={onLoadNextArticles}>
+        <Page className={classNames('', {}, [className])} onScrollEnd={onLoadNextArticles}>
             <h1>{t('articlesPageTitle')}</h1>
             <SelectArticlesView view={view} onChange={onChangeView} className={classes['select-articles-view']} />
             <ArticleList
@@ -76,7 +76,7 @@ const ArticlesPage = memo(({ className }:MainPageProps) => {
                 view={view}
                 isLoading={isLoading}
             />
-        </AppPage>
+        </Page>
     );
 });
 

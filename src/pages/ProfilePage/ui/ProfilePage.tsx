@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { ProfileCard } from '@/entities/Profile';
-import { AppPage } from '@/shared/ui';
+import { Page } from '@/widgets/Page';
 
 const ProfilePage = memo(() => (
-    <AppPage>
+    <Page>
         <ProfileCard />
-    </AppPage>
+    </Page>
 ));
 
 export default ProfilePage;

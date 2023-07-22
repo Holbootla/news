@@ -9,10 +9,12 @@ import { ProfileSchema } from '@/entities/Profile';
 import { ArticleSchema } from '@/entities/Article';
 import { AddArticleCommentSchema, ArticleCommentsSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { PageSchema } from '@/widgets/Page/model/types/page';
 
 export interface StateSchema {
     counter:CounterSchema,
     user:UserSchema,
+    page:PageSchema,
     login?:LoginSchema,
     profile?:ProfileSchema,
     article?:ArticleSchema,

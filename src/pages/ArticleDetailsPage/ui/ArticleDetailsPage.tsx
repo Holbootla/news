@@ -21,8 +21,9 @@ import { CommentList } from '@/entities/Comment';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AppText } from '@/shared/ui/AppText/AppText';
-import { AppButton, AppPage, AppSpinner } from '@/shared/ui';
+import { AppButton, AppSpinner } from '@/shared/ui';
 import { routePaths } from '@/app/config';
+import { Page } from '@/widgets/Page';
 
 const initialReducers:ReducersList = {
     articleComments: articleCommentsReducer,
@@ -58,7 +59,7 @@ const ArticleDetailsPage = memo(() => {
     }, [navigate]);
 
     return (
-        <AppPage>
+        <Page>
             <AppButton onClick={onBackToArticles} className={classes['back-btn']}>{t('backToArticles')}</AppButton>
             <ArticleDetails id={id} />
             <AppText title={t('comments')} />
@@ -66,7 +67,7 @@ const ArticleDetailsPage = memo(() => {
                 <AddCommentForm onSendComment={onSendComment} error={addArticleCommentError} isLoading={addArticleCommentIsLoading} />
             </Suspense>
             <CommentList comments={comments} isLoading={articleCommentIsLoading} error={articleCommentError} />
-        </AppPage>
+        </Page>
     );
 });
 

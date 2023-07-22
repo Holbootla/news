@@ -1,5 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MainPage from './MainPage';
+import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'pages/MainPage',
@@ -9,3 +10,4 @@ export default {
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
 
 export const Default = Template.bind({});
+Default.decorators = [StoreDecorator({})];

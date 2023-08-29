@@ -98,7 +98,7 @@
       "title": "Lorem ipsum dolor sit",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
-      "views": 666,
+      "views": 6666,
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
@@ -153,7 +153,7 @@
       "title": "Lorem ipsum dolor sit",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
-      "views": 666,
+      "views": 6666,
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
@@ -208,7 +208,7 @@
       "title": "Lorem ipsum dolor sit",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit.",
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
-      "views": 666,
+      "views": 6666,
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
@@ -265,7 +265,7 @@
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "userId": "1",
-      "createdAt": "27.03.2023",
+      "createdAt": "27.03.2022",
       "type": [
         "history"
       ],
@@ -320,7 +320,7 @@
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "userId": "1",
-      "createdAt": "27.03.2023",
+      "createdAt": "27.03.2022",
       "type": [
         "history"
       ],
@@ -375,7 +375,7 @@
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "userId": "1",
-      "createdAt": "27.03.2023",
+      "createdAt": "27.03.2022",
       "type": [
         "history"
       ],
@@ -485,7 +485,7 @@
       "img": "https://cdn.pixabay.com/photo/2023/03/24/23/06/goat-7874883_960_720.jpg",
       "views": 666,
       "userId": "1",
-      "createdAt": "27.03.2023",
+      "createdAt": "27.03.2022",
       "type": [
         "history"
       ],
@@ -542,7 +542,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "it"
       ],
       "blocks": [
         {
@@ -597,7 +597,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "it"
       ],
       "blocks": [
         {
@@ -762,7 +762,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "it"
       ],
       "blocks": [
         {
@@ -872,7 +872,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "it"
       ],
       "blocks": [
         {
@@ -1037,7 +1037,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "it"
       ],
       "blocks": [
         {
@@ -1147,7 +1147,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1202,7 +1202,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1257,7 +1257,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1312,7 +1312,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1367,7 +1367,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live", "it", "history"
       ],
       "blocks": [
         {
@@ -1422,7 +1422,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1477,7 +1477,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {
@@ -1532,7 +1532,7 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "history"
+        "live"
       ],
       "blocks": [
         {

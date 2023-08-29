@@ -1,4 +1,12 @@
 {
   "articlesPageTitle": "Articles",
-  "readArticle": "readArticle"
+  "asc": "Ascending",
+  "date": "Date",
+  "desc": "Descending",
+  "order": "Order",
+  "readArticle": "Read article",
+  "search": "Search...",
+  "sort": "Sort",
+  "title": "Title",
+  "views": "Views"
 }

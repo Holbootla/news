@@ -1,8 +1,17 @@
 .Page {
     flex-grow: 1;
     width: 100%;
-    padding: 40px 5% 40px 10%;
+    padding: 40px 10%;
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
     position: relative;
+}
+
+.content {
+    max-width: 760px;
+}
+
+.trigger {
+    width: 10px;
+    height: 10px;
 }

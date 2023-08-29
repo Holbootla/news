@@ -42,8 +42,10 @@ export const Page = ({ className, children, onScrollEnd }:PageProps) => {
             className={classNames(classes.Page, {}, [className])}
             onScroll={onScroll}
         >
-            {children}
-            <div ref={triggerRef} />
+            <div className={classNames(classes.content, {}, [])}>
+                {children}
+                {onScrollEnd && <div className={classes.trigger} ref={triggerRef} />}
+            </div>
         </section>
     );
 };

@@ -44,7 +44,7 @@ module.exports = {
         'import/no-extraneous-dependencies': ['error', {
             devDependencies: true,
         }],
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
         'import/extensions': 'off',
         'import/no-unresolved': 'off',
         'react/react-in-jsx-scope': 'off',

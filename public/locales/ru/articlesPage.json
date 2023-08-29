@@ -1,4 +1,12 @@
 {
   "articlesPageTitle": "Статьи",
-  "readArticle": "readArticle"
+  "asc": "По возрастанию",
+  "date": "Дата",
+  "desc": "По убыванию",
+  "order": "Порядок",
+  "readArticle": "Читать статью",
+  "search": "Искать...",
+  "sort": "Сортировка",
+  "title": "Название",
+  "views": "Просмотры"
 }

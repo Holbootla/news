@@ -1,4 +1,4 @@
-export const getQueryParams = (params:Record<string, string>) => {
+export const getQueryParams = (params:Record<string, string | null>) => {
     const searchParams = new URLSearchParams(window.location.search);
     Object.entries(params).forEach(([key, value]) => {
         if (value) {
@@ -12,14 +12,6 @@ export const getQueryParams = (params:Record<string, string>) => {
     return `${searchParams.size ? '?' : ''}${searchParams.toString()}`;
 };
 
-export const addQueryParam = (params:Record<string, string>) => {
-    const searchParams = new URLSearchParams(window.location.search);
-    Object.entries(params).forEach(([key, value]) => {
-        if (value) {
-            searchParams.set(key, value);
-        } else {
-            searchParams.delete(key);
-        }
-        window.history.pushState(null, '', getQueryParams(params));
-    });
+export const addQueryParam = (params:Record<string, string | null>) => {
+    window.history.pushState(null, '', getQueryParams(params));
 };

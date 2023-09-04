@@ -5,6 +5,7 @@ import classes from './ArticleList.module.scss';
 import { Article, ArticleListView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { AppText } from '@/shared/ui/AppText/AppText';
 
 interface ArticleListProps {
     className?:string;
@@ -17,6 +18,17 @@ export const ArticleList = memo(({
     className, articles, view = 'list', isLoading,
 }:ArticleListProps) => {
     const { t } = useTranslation('articlesPage');
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                data-testid="ArticleList"
+                className={classNames(classes.ArticleList, {}, [className, classes[view]])}
+            >
+                <AppText text={t('articlesNotFound')} />
+            </div>
+        );
+    }
 
     return (
         <div

@@ -4,7 +4,7 @@ import { Article, ArticleListView } from '@/entities/Article';
 import { ArticlesPageSchema } from '../types/articlesPage';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
-import { ArticleSortField } from '@/entities/Article/model/types/article';
+import { ArticleSortField, ArticleType } from '@/entities/Article/model/types/article';
 import { SortOrder } from '@/shared/types';
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -29,6 +29,7 @@ export const articlesPageSlice = createSlice({
         order: 'desc',
         sort: ArticleSortField.CREATED,
         search: '',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setPage: (state, action:PayloadAction<number>) => {
@@ -48,7 +49,11 @@ export const articlesPageSlice = createSlice({
         setSearch: (state, action:PayloadAction<string>) => {
             state.search = action.payload;
         },
-        initState: (state, action:PayloadAction<{sort: ArticleSortField, order: SortOrder, search: string}>) => {
+        setType: (state, action:PayloadAction<ArticleType>) => {
+            state.type = action.payload;
+        },
+        initState: (state, action:PayloadAction<{sort: ArticleSortField, order: SortOrder, search: string,
+            type: ArticleType}>) => {
             const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleListView;
             if (action.payload.sort) {
                 state.sort = action.payload.sort;
@@ -58,6 +63,9 @@ export const articlesPageSlice = createSlice({
             }
             if (action.payload.search) {
                 state.search = action.payload.search;
+            }
+            if (action.payload.type) {
+                state.type = action.payload.type;
             }
             state.view = view;
             state.limit = view === 'list' ? 3 : 9;

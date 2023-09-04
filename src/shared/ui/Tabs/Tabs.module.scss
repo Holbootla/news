@@ -1,0 +1,22 @@
+.Tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+    background: var(--card-bg-color);
+
+    &.active {
+        cursor: default;
+        pointer-events: none;
+        border: 1px solid var(--secondary-link-color);
+    }
+}

@@ -21,7 +21,7 @@ import {
 import { Page } from '@/widgets/Page';
 import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 import classes from './ArticlePage.module.scss';
-import { ArticleSortField } from '@/entities/Article/model/types/article';
+import { ArticleSortField, ArticleType } from '@/entities/Article/model/types/article';
 import { SortOrder } from '@/shared/types';
 
 interface ArticlesPageProps {
@@ -54,7 +54,10 @@ const ArticlesPage = memo(({ className }:ArticlesPageProps) => {
             const sort = searchParams.get('sort') as ArticleSortField;
             const order = searchParams.get('order') as SortOrder;
             const search = searchParams.get('search');
-            dispatch(articlesPageActions.initState({ sort, order, search }));
+            const type = searchParams.get('type') as ArticleType;
+            dispatch(articlesPageActions.initState({
+                sort, order, search, type,
+            }));
             dispatch(fetchArticles({}));
         }
     });

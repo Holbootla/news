@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
-import { getArticlesPageLimit } from '@/pages/ArticlesPage/model/selectors/getArticlesPageLimit/getArticlesPageLimit';
-import { getArticlesPageSort } from '@/pages/ArticlesPage/model/selectors/getArticlesPageSort/getArticlesPageSort';
-import { getArticlesPageOrder } from '@/pages/ArticlesPage/model/selectors/getArticlesPageOrder/getArticlesPageOrder';
-import {
-    getArticlesPageSearch,
-} from '@/pages/ArticlesPage/model/selectors/getArticlesPageSearch/getArticlesPageSearch';
-import { getArticlesPagePage } from '@/pages/ArticlesPage/model/selectors/getArticlesPagePage/getArticlesPagePage';
+import { getArticlesPageLimit } from '../../selectors/getArticlesPageLimit/getArticlesPageLimit';
+import { getArticlesPageSort } from '../../selectors/getArticlesPageSort/getArticlesPageSort';
+import { getArticlesPageOrder } from '../../selectors/getArticlesPageOrder/getArticlesPageOrder';
+import { getArticlesPageSearch } from '../../selectors/getArticlesPageSearch/getArticlesPageSearch';
+import { getArticlesPagePage } from '../../selectors/getArticlesPagePage/getArticlesPagePage';
 import { addQueryParam } from '@/shared/lib/url/addQueryParam/addQueryParam';
+import { getArticlesPageType } from '../../selectors/getArticlesPageType/getArticlesPageType';
+import { ArticleType } from '@/entities/Article/model/types/article';
 
 interface fetchArticlesProps {
     replace?:boolean;
@@ -30,7 +30,10 @@ export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, Thu
         const sort = getArticlesPageSort(state);
         const order = getArticlesPageOrder(state);
         const search = getArticlesPageSearch(state);
-        addQueryParam({ sort, order, search: search?.length ? search : null });
+        const type = getArticlesPageType(state);
+        addQueryParam({
+            sort, order, search: search?.length ? search : null, type: type === ArticleType.ALL ? null : type,
+        });
         try {
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
@@ -40,6 +43,7 @@ export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, Thu
                     _sort: sort,
                     _order: order,
                     q: search,
+                    type: type === ArticleType.ALL ? undefined : type,
                 },
             });
 

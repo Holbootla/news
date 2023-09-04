@@ -40,6 +40,7 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
 export enum ArticleType {
+    ALL = 'all',
     HISTORY = 'history',
     IT = 'it',
     LIVE = 'live',

@@ -1,11 +1,11 @@
 {
   "articleTypes": {
-    "all": "all",
-    "history": "history",
-    "it": "it",
-    "live": "live"
+    "all": "Все",
+    "history": "История",
+    "it": "АйТи",
+    "live": "Жизнь"
   },
-  "articlesNotFound": "articlesNotFound",
+  "articlesNotFound": "Статьи не найдены",
   "articlesPageTitle": "Статьи",
   "asc": "По возрастанию",
   "date": "Дата",

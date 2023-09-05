@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/lib';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleListView } from '../../model/types/article';
@@ -12,10 +12,12 @@ interface ArticleListProps {
     articles:Article[];
     view?:ArticleListView;
     isLoading?:boolean;
+    wrap?:boolean;
+    target?:HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo(({
-    className, articles, view = 'list', isLoading,
+    className, articles, view = 'grid', isLoading, wrap = true, target,
 }:ArticleListProps) => {
     const { t } = useTranslation('articlesPage');
 
@@ -23,7 +25,7 @@ export const ArticleList = memo(({
         return (
             <div
                 data-testid="ArticleList"
-                className={classNames(classes.ArticleList, {}, [className, classes[view]])}
+                className={classNames(classes.ArticleList, { [classes.wrap]: wrap }, [className, classes[view]])}
             >
                 <AppText text={t('articlesNotFound')} />
             </div>
@@ -33,10 +35,10 @@ export const ArticleList = memo(({
     return (
         <div
             data-testid="ArticleList"
-            className={classNames(classes.ArticleList, {}, [className, classes[view]])}
+            className={classNames(classes.ArticleList, { [classes.wrap]: wrap }, [className, classes[view]])}
         >
             {articles?.map((article) => (
-                <ArticleListItem key={article.id} article={article} view={view} />
+                <ArticleListItem key={article.id} article={article} view={view} target={target} />
             ))}
             {isLoading && (
                 new Array(view === 'grid' ? 20 : 3)

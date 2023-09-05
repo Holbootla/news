@@ -1,4 +1,4 @@
-export interface AddArticleCommentSchema {
+export interface AddArticleCommentsSchema {
     isLoading:boolean;
     error?:string;
 }

@@ -1,7 +1,7 @@
 .AppText {
     display: flex;
     flex-direction: column;
-    column-gap: 5px;
+    gap: 8px;
 
     &.primary {
         color: var(--primary-color);

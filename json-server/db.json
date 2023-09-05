@@ -1367,7 +1367,9 @@
       "userId": "1",
       "createdAt": "27.03.2023",
       "type": [
-        "live", "it", "history"
+        "live",
+        "it",
+        "history"
       ],
       "blocks": [
         {
@@ -1713,6 +1715,12 @@
       "userId": "1",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis dignissim lorem. Aliquam id ipsum mi. Mauris et iaculis libero. Etiam id sodales sem. Cras urna elit, gravida sit amet congue eget, lacinia ac tellus.",
       "id": "EZ-D3e_"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet.",
+      "id": "WUaEPSh"
     }
   ]
 }

@@ -88,8 +88,10 @@ export const articlesPageSlice = createSlice({
                 } else {
                     articlesAdapter.addMany(state, action.payload);
                 }
-                state.page += 1;
-                if (!action.payload.length) {
+                if (action.payload.length >= state.limit) {
+                    state.hasMore = true;
+                    state.page += 1;
+                } else {
                     state.hasMore = false;
                 }
             })

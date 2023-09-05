@@ -2,10 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { StoreDecorator } from '@/shared/storybook/decorators/StoreDecorator';
 import { ReducersList } from '@/shared/lib';
-import { articleDataMock, articleReducer } from '@/entities/Article';
+import { articleDataMock } from '@/entities/Article';
 import { articleCommentsNormalizedDataMock } from '@/entities/Article/model/mocks/articleCommentsNormalizedDataMock';
-import { articleCommentsReducer } from '../model/slice/articleCommentsSlice/articleCommentsSlice';
-import { addArticleCommentReducer } from '../model/slice/addArticleCommentSlice/addArticleCommentSlice';
+import { ArticleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -15,9 +14,7 @@ export default {
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
 
 const asyncReducers:ReducersList = {
-    article: articleReducer,
-    articleComments: articleCommentsReducer,
-    addArticleComment: addArticleCommentReducer,
+    articleDetailsPage: ArticleDetailsPageReducer,
 };
 
 export const Default = Template.bind({});
@@ -29,16 +26,25 @@ Default.decorators = [StoreDecorator(
             error: undefined,
             isLoading: false,
         },
-        articleComments: {
-            ids: ['1', '2'],
-            entities: articleCommentsNormalizedDataMock,
-            error: undefined,
-            isLoading: false,
+        articleDetailsPage: {
+            comments: {
+                ids: ['1', '2'],
+                entities: articleCommentsNormalizedDataMock,
+                error: undefined,
+                isLoading: false,
+            },
+            addComments: {
+                error: undefined,
+                isLoading: false,
+            },
+            recommendations: {
+                ids: ['1'],
+                entities: { 1: articleDataMock },
+                error: undefined,
+                isLoading: false,
+            },
         },
-        addArticleComment: {
-            error: undefined,
-            isLoading: false,
-        },
+
     },
     asyncReducers,
 )];
@@ -52,15 +58,23 @@ Loading.decorators = [StoreDecorator(
             error: undefined,
             isLoading: true,
         },
-        articleComments: {
-            ids: [],
-            entities: {},
-            error: undefined,
-            isLoading: true,
-        },
-        addArticleComment: {
-            error: undefined,
-            isLoading: false,
+        articleDetailsPage: {
+            comments: {
+                ids: [],
+                entities: {},
+                error: undefined,
+                isLoading: true,
+            },
+            addComments: {
+                error: undefined,
+                isLoading: true,
+            },
+            recommendations: {
+                ids: [],
+                entities: {},
+                error: undefined,
+                isLoading: true,
+            },
         },
     },
     asyncReducers,

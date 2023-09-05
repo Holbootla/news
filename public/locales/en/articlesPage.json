@@ -1,11 +1,11 @@
 {
   "articleTypes": {
-    "all": "all",
-    "history": "history",
-    "it": "it",
-    "live": "live"
+    "all": "All",
+    "history": "History",
+    "it": "IT",
+    "live": "Live"
   },
-  "articlesNotFound": "articlesNotFound",
+  "articlesNotFound": "Articles not found",
   "articlesPageTitle": "Articles",
   "asc": "Ascending",
   "date": "Date",

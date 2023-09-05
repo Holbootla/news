@@ -4,8 +4,10 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 describe('tests for getAddArticleCommentError selector', () => {
     test('should return error', () => {
         const state:DeepPartial<StateSchema> = {
-            addArticleComment: {
-                error: 'error',
+            articleDetailsPage: {
+                addComments: {
+                    error: 'error',
+                },
             },
         };
         expect(getAddArticleCommentError(state as StateSchema)).toEqual('error');

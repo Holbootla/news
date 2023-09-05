@@ -4,8 +4,10 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 describe('getArticleCommentsIsLoading', () => {
     test('should return articleCommentsData state', () => {
         const state:DeepPartial<StateSchema> = {
-            articleComments: {
-                isLoading: true,
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true,
+                },
             },
         };
         expect(getArticleCommentsIsLoading(state as StateSchema)).toBe(true);

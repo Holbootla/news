@@ -4,8 +4,10 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 describe('getArticleCommentsError', () => {
     test('should return articleCommentsData state', () => {
         const state:DeepPartial<StateSchema> = {
-            articleComments: {
-                error: 'error',
+            articleDetailsPage: {
+                comments: {
+                    error: 'error',
+                },
             },
         };
         expect(getArticleCommentsError(state as StateSchema)).toBe('error');

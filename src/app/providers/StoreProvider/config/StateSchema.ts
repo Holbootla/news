@@ -7,7 +7,7 @@ import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUserName';
 import { ProfileSchema } from '@/entities/Profile';
 import { ArticleSchema } from '@/entities/Article';
-import { AddArticleCommentSchema, ArticleCommentsSchema } from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { PageSchema } from '@/widgets/Page/model/types/page';
 
@@ -18,9 +18,8 @@ export interface StateSchema {
     login?:LoginSchema,
     profile?:ProfileSchema,
     article?:ArticleSchema,
-    articleComments?:ArticleCommentsSchema,
-    addArticleComment?:AddArticleCommentSchema,
     articlesPage?:ArticlesPageSchema,
+    articleDetailsPage?:ArticleDetailsPageSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

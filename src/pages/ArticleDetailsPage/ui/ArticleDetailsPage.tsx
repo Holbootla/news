@@ -3,16 +3,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import classes from './ArticleDetailsPage.module.scss';
-import { ArticleDetails } from '@/entities/Article';
+import { ArticleDetails, ArticleList } from '@/entities/Article';
 import { AddCommentForm } from '@/features/AddComment';
 import { ReducersList, useAppDispatch, useDynamicReducerLoading } from '@/shared/lib';
 import { sendArticleComment } from '../model/services/sendArticleComment/sendArticleComment';
-import { addArticleCommentReducer } from '../model/slice/addArticleCommentSlice/addArticleCommentSlice';
 import { getAddArticleCommentError } from '../model/selectors/getAddArticleCommentError/getAddArticleCommentError';
 import {
     getAddArticleCommentIsLoading,
 } from '../model/selectors/getAddArticleCommentIsLoading/getAddArticleCommentIsLoading';
-import { articleCommentsReducer, getArticleComments } from '../model/slice/articleCommentsSlice/articleCommentsSlice';
+import { getArticleComments } from '../model/slice/articleCommentsSlice/articleCommentsSlice';
 import {
     getArticleCommentsIsLoading,
 } from '../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';
@@ -24,10 +23,20 @@ import { AppText } from '@/shared/ui/AppText/AppText';
 import { AppButton, AppSpinner } from '@/shared/ui';
 import { routePaths } from '@/app/config';
 import { Page } from '@/widgets/Page';
+import {
+    getArticleRecommendationsIsLoading,
+} from '../model/selectors/getArticleRecommendationsIsLoading/getArticleRecommendationsIsLoading';
+import {
+    getArticleRecommendationsError,
+} from '../model/selectors/getArticleRecommendationsError/getArticleRecommendationsError';
+import { getArticleRecommendations } from '../model/slice/articleRecommendationsSlice/articleRecommendationsSlice';
+import {
+    fetchRecommendationsByArticleId,
+} from '@/pages/ArticleDetailsPage/model/services/fetchRecommendationsByArticleType/fetchRecommendationsByArticleId';
+import { ArticleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
 
 const initialReducers:ReducersList = {
-    articleComments: articleCommentsReducer,
-    addArticleComment: addArticleCommentReducer,
+    articleDetailsPage: ArticleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = memo(() => {
@@ -41,14 +50,21 @@ const ArticleDetailsPage = memo(() => {
 
     useDynamicReducerLoading({ reducers: initialReducers, removeAfterUnmount: true });
 
-    const articleCommentIsLoading = useSelector(getArticleCommentsIsLoading);
-    const articleCommentError = useSelector(getArticleCommentsError);
-    const comments = useSelector(getArticleComments.selectAll);
-
     const addArticleCommentIsLoading = useSelector(getAddArticleCommentIsLoading);
     const addArticleCommentError = useSelector(getAddArticleCommentError);
 
-    useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
+    const articleCommentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const articleCommentsError = useSelector(getArticleCommentsError);
+    const comments = useSelector(getArticleComments.selectAll);
+
+    const articleRecommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
+    const articleRecommendationsError = useSelector(getArticleRecommendationsError);
+    const recommendedArticles = useSelector(getArticleRecommendations.selectAll);
+
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchRecommendationsByArticleId(id));
+    });
 
     const onSendComment = useCallback((value:string) => {
         dispatch(sendArticleComment(value));
@@ -61,12 +77,18 @@ const ArticleDetailsPage = memo(() => {
     return (
         <Page>
             <AppButton onClick={onBackToArticles} className={classes['back-btn']}>{t('backToArticles')}</AppButton>
-            <ArticleDetails id={id} />
-            <AppText title={t('comments')} />
+            <ArticleDetails id={id} className={classes['article-details']} />
+            <AppText title={t('comments')} className={classes.title} />
             <Suspense fallback={<AppSpinner />}>
                 <AddCommentForm onSendComment={onSendComment} error={addArticleCommentError} isLoading={addArticleCommentIsLoading} />
             </Suspense>
-            <CommentList comments={comments} isLoading={articleCommentIsLoading} error={articleCommentError} />
+            <CommentList comments={comments} isLoading={articleCommentsIsLoading} error={articleCommentsError} className={classes.comments} />
+            {!articleRecommendationsError && (
+                <>
+                    <AppText title={t('recommendedArticles')} className={classes.title} />
+                    <ArticleList articles={recommendedArticles} isLoading={articleRecommendationsIsLoading} wrap={false} target="_blank" />
+                </>
+            )}
         </Page>
     );
 });

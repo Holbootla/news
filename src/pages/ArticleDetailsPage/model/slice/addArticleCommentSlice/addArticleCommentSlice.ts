@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sendArticleComment } from '../../services/sendArticleComment/sendArticleComment';
-import { AddArticleCommentSchema } from '../../types/addArticleComment';
+import { AddArticleCommentsSchema } from '../../types/addArticleComments';
 
-const initialState:AddArticleCommentSchema = {
+const initialState:AddArticleCommentsSchema = {
     isLoading: false,
     error: undefined,
 };
 
 export const addArticleCommentSlice = createSlice({
-    name: 'articleDetailsPage/addArticleComment',
+    name: 'articleDetailsPage/addArticleComments',
     initialState,
     reducers: {},
     extraReducers: (builder) => {

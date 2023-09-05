@@ -1,11 +1,17 @@
 .grid {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    padding: 8px 0;
+    overflow-x: auto;
 }
 
 .list {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+}
+
+.wrap {
+    flex-wrap: wrap;
+    overflow-x: unset;
 }

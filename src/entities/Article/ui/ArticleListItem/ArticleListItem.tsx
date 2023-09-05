@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { Link } from 'react-router-dom';
 import { classNames } from '@/shared/lib';
 import classes from './ArticleListItem.module.scss';
 import {
@@ -17,37 +17,35 @@ interface ArticleListItemProps {
     className?:string;
     article:Article;
     view:ArticleListView;
+    target?:HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo(({ className, article, view }:ArticleListItemProps) => {
+export const ArticleListItem = memo(({
+    className, article, view, target,
+}:ArticleListItemProps) => {
     const { t } = useTranslation('articlesPage');
-
-    const navigate = useNavigate();
-
-    const onArticleOpen = useCallback(() => {
-        navigate(`${routePaths.article_details}/${article.id}`);
-    }, [article.id, navigate]);
 
     if (view === 'grid') {
         return (
-            <AppCard
-                data-testid="ArticleListItem"
-                className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}
-                onClick={onArticleOpen}
-            >
-                <div className={classes['image-wrapper']}>
-                    <img src={article.img} alt={article.title} className={classes.image} />
-                    <AppText text={article.createdAt} className={classes.date} />
-                </div>
-                <div className={classes.header}>
-                    <AppText text={article.type.join(', ')} className={classes.types} />
-                    <div className={classes.views}>
-                        <Icon Svg={EyeIcon} size="s" />
-                        <AppText text={`${article.views}`} />
+            <Link to={`${routePaths.article_details}/${article.id}`} target={target}>
+                <AppCard
+                    data-testid="ArticleListItem"
+                    className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}
+                >
+                    <div className={classes['image-wrapper']}>
+                        <img src={article.img} alt={article.title} className={classes.image} />
+                        <AppText text={article.createdAt} className={classes.date} />
                     </div>
-                </div>
-                <AppText text={article.title} className={classes.title} />
-            </AppCard>
+                    <div className={classes.header}>
+                        <AppText text={article.type.join(', ')} className={classes.types} />
+                        <div className={classes.views}>
+                            <Icon Svg={EyeIcon} size="s" />
+                            <AppText text={`${article.views}`} />
+                        </div>
+                    </div>
+                    <AppText text={article.title} className={classes.title} />
+                </AppCard>
+            </Link>
         );
     }
 
@@ -70,11 +68,11 @@ export const ArticleListItem = memo(({ className, article, view }:ArticleListIte
             <img src={article.img} alt={article.title} className={classes.image} />
             {textBlock && <ArticleDetailsBlockText block={textBlock} className={classes.content} />}
             <div className={classes.footer}>
-                <AppButton
-                    onClick={onArticleOpen}
-                >
-                    {t('readArticle')}
-                </AppButton>
+                <Link to={`${routePaths.article_details}/${article.id}`} target={target}>
+                    <AppButton>
+                        {t('readArticle')}
+                    </AppButton>
+                </Link>
                 <div className={classes.views}>
                     <Icon Svg={EyeIcon} size="s" />
                     <AppText text={`${article.views}`} />

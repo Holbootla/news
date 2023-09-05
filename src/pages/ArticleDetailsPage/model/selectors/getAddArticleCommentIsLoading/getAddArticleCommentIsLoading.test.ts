@@ -4,16 +4,20 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 describe('tests for getAddArticleCommentIsLoading selector', () => {
     test('should return isLoading === true', () => {
         const state:DeepPartial<StateSchema> = {
-            addArticleComment: {
-                isLoading: true,
+            articleDetailsPage: {
+                addComments: {
+                    isLoading: true,
+                },
             },
         };
         expect(getAddArticleCommentIsLoading(state as StateSchema)).toEqual(true);
     });
     test('should return isLoading === false', () => {
         const state:DeepPartial<StateSchema> = {
-            addArticleComment: {
-                isLoading: false,
+            articleDetailsPage: {
+                addComments: {
+                    isLoading: false,
+                },
             },
         };
         expect(getAddArticleCommentIsLoading(state as StateSchema)).toEqual(false);

@@ -1,7 +1,7 @@
 .Page {
     flex-grow: 1;
     width: 100%;
-    padding: 40px 10%;
+    padding: 64px 10% 128px;
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
     position: relative;

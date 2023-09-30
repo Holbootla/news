@@ -50,7 +50,7 @@ export const AppInput = memo(({
                 [className],
             )}
         >
-            {label && <p>{label}</p>}
+            {label && <p className={classNames(classes.label, {}, [])}>{label}</p>}
             <input
                 data-testid="appInput"
                 className={classNames(

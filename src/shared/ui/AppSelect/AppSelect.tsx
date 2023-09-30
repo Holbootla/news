@@ -42,9 +42,7 @@ export const AppSelect = memo(({
             data-testid={testId}
             className={classNames(classes.AppSelect, {}, [className])}
         >
-            {label && (
-                <p>{label}</p>
-            )}
+            {label && <p className={classNames(classes.label, {}, [])}>{label}</p>}
             <select
                 className={classes.select}
                 value={value ?? ''}

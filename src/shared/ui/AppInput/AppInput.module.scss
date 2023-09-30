@@ -1,7 +1,7 @@
 .input-wrapper {
     display: flex;
     align-items: center;
-    column-gap: 5px;
+    column-gap: 16px;
     width: 400px;
 
     &.wide {
@@ -32,4 +32,8 @@
     &::placeholder {
         color: var(--secondary-color);
     }
+}
+
+.label {
+    white-space: nowrap;
 }

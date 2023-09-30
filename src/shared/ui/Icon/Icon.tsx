@@ -11,17 +11,17 @@ interface IconProps {
 }
 
 export const Icon = memo(({ className, Svg, size = 'm' }:IconProps) => {
-    let width = 40;
-    let height = 40;
+    let width = 32;
+    let height = 32;
 
     switch (size) {
     case 'l':
-        width = 60;
-        height = 60;
+        width = 64;
+        height = 64;
         break;
     case 's':
-        width = 20;
-        height = 20;
+        width = 16;
+        height = 16;
         break;
     default:
         break;
